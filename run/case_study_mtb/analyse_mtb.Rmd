@@ -1,0 +1,38 @@
+---
+title: "Multimerger Case Study: MTB Sequences from Menardo2019"
+output: rmarkdown::html_document
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4, tibble.print_max = 4)
+```
+
+Load Packages
+```{r}
+library(MMCTime)
+library(ggplot2)
+library(ape)
+library(ggtree)
+library(posterior)
+library(reshape2)
+
+set.seed(1234356)
+run_mcmc <- T
+
+```
+
+```{r}
+tree_names <- c("Eldholm2015", "Lee2015", "Bainomugisa2018")
+in_names <- paste0("ml_trees/",tree_names, ".fasta.ml_tree.nwk")
+tres <- lapply(in_names, read.tree)
+
+names(tres) <- tree_names
+class(tres) <- "multiPhylo"
+```
+
+```{r, out.width="100%"}
+ggtree(tres) + theme_tree2() + facet_wrap(~.id, ncol=3)
+```
+
+```{}

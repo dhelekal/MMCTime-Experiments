@@ -1,0 +1,533 @@
+id,country,latitude,longitude,location,year,month,day,Accession_number,Serotype_phenotypic__autocolor,wbeT_mutation__autocolour,fastbaps_LAT1__autocolour,hlyA.assembled__autocolour,hapA.assembled__autocolour,zot.assembled__autocolour,ctxA.assembled__autocolour,ctxB.assembled__autocolour,ace.assembled__autocolour,ompU.assembled__autocolour,tcpA_ET.assembled__autocolour,IncA_C..assembled__autocolour
+16244_7_34,Burkina Faso,12.238333,-1.561593,Burkina Faso,1984,NA,NA,ERR976485,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_37,Bolivia,-16.290154,-63.588653,Bolivia,1991,NA,NA,ERR976488,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_38,Brazil,-14.235004,-51.92528,Brazil,1991,NA,NA,ERR976489,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_41,Brazil,-14.235004,-51.92528,Brazil,1991,NA,NA,ERR976492,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_42,Brazil,-14.235004,-51.92528,Brazil,1992,NA,NA,ERR976493,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_43,Bolivia,-16.290154,-63.588653,Bolivia,1992,NA,NA,ERR976494,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_44,Bolivia,-16.290154,-63.588653,Bolivia,1992,NA,NA,ERR976495,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+16244_7_45,Bolivia,-16.290154,-63.588653,Bolivia,1992,NA,NA,ERR976496,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_46,Bolivia,-16.290154,-63.588653,Bolivia,1991,NA,NA,ERR976497,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_47,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976498,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16244_7_48,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976499,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16244_7_49,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976500,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_50,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976501,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_51,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976502,Ogawa,,3,yes,yes,/,/,/,/,yes,yes,/
+16244_7_52,Angola,-11.202692,17.873887,Angola,1988,NA,NA,ERR976503,Ogawa,,3,yes,yes,/,/,/,/,yes,yes,/
+16244_7_60,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR976511,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+16244_7_61,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR976512,Ogawa,,3,yes,yes,/,/,/,/,yes,yes,/
+16244_7_71,Angola,-11.202692,17.873887,Angola,1992,NA,NA,ERR976522,Inaba,N62fs,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16244_7_81,Angola,-11.202692,17.873887,Angola,1994,NA,NA,ERR976532,Inaba,N62fs,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16244_7_82,Angola,-11.202692,17.873887,Angola,1994,NA,NA,ERR976533,Inaba,N62fs,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16356_8_10,Angola,-11.202692,17.873887,Angola,1995,NA,NA,ERR998665,Inaba,N62fs,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+16356_8_9,Angola,-11.202692,17.873887,Angola,1995,NA,NA,ERR998664,Inaba,N62fs,3,yes,yes,yes,yes,yes,yes,yes,yes,yes
+26237_7_100,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_101,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_102,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,12,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26237_7_103,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_104,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_105,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_106,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_107,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_108,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_109,Argentina,-27.013351,-65.236407, Tucumán Argentina,1993,3,8,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_110,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_111,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_112,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_113,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_114,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_115,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_116,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_117,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_118,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_119,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_120,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,21,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_121,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_122,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1996,11,8,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_123,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1996,11,8,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_124,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1997,1,23,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_125,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_126,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,21,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_127,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1996,11,8,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_128,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,21,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_129,Argentina,NA,NA,  Argentina,NA,NA,NA,/,,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_130,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_131,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_132,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_134,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_135,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_136,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_137,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_138,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_139,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26237_7_140,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_141,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Inaba,F244fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_142,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_143,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_144,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_145,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_146,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_147,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Inaba,F244fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_148,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,10,25,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_149,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_150,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_151,Argentina,NA,NA,  Argentina,1993,2,15,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_152,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_153,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_154,Argentina,-32.972322,-68.694377, Mendoza Argentina,1993,2,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_155,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_156,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_157,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_158,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_159,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_160,Argentina,-30.27808,-60.844491, Santa Fe Argentina,1993,2,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_161,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_162,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_163,Argentina,-25.496083,-64.971867,Metan  Salta Argentina,1993,2,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_164,Argentina,-25.496083,-64.971867,Metan  Salta Argentina,1993,2,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_165,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_167,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,partial,/
+26237_7_168,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_169,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_170,Argentina,-25.496083,-64.971867,Metan  Salta Argentina,1993,2,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_171,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_172,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_173,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,10,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_174,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_175,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26237_7_176,Argentina,-25.496083,-64.971867,Metan  Salta Argentina,1993,2,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_177,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_178,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26237_7_179,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,/,/,/,partial,yes,yes,/
+26237_7_180,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Inaba,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_181,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_183,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26237_7_184,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_185,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26237_7_186,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_187,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_188,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_189,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_190,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_191,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,/,/,/,/,yes,yes,/
+26237_7_192,Argentina,-27.013351,-65.236407, Tucumán Argentina,1997,1,23,/,Ogawa,,1,yes,yes,/,partial,/,/,yes,yes,/
+26237_7_39,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_40,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_41,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_43,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_46,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,interrupted,yes,yes,yes,yes,yes,/
+26237_7_50,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_51,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_52,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_53,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_54,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_55,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_56,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_57,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_59,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1992,12,28,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_60,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,30,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,yes
+26237_7_61,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_62,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,30,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,partial,/
+26237_7_63,Argentina,-34.59949,-58.342609, CABA Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26237_7_64,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_66,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_67,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,2,24,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_68,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_69,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_70,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_71,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_72,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_73,Argentina,-32.952166,-60.689429,Rosario Santa Fe Argentina,1993,2,2,/,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_74,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_75,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_76,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_77,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_78,Argentina,-27.928418,-63.562221, Santiago del Estero Argentina,1993,1,14,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_79,Argentina,-32.972322,-68.694377, Mendoza Argentina,1993,1,28,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_80,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_81,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,5,10,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_82,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,5,10,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_83,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_84,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_85,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_86,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_87,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_88,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_89,Argentina,-27.013351,-65.236407, Tucumán Argentina,1993,3,8,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26237_7_91,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_92,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_93,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_94,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_95,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26237_7_96,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,12,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_97,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26237_7_98,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,/,/
+26237_7_99,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_1,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_10,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,4,1,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_100,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1997,1,23,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_101,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1997,1,23,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_102,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,13,/,Ogawa,,1,yes,yes,/,/,/,/,yes,yes,/
+26268_1_105,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1997,3,13,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_106,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,2,10,/,Inaba,N62fs,1,yes,yes,/,/,/,/,yes,yes,/
+26268_1_107,Argentina,NA,NA,  Argentina,NA,NA,NA,/,,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_108,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1996,11,8,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_109,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1997,1,23,/,Ogawa,,1,yes,yes,/,/,/,/,yes,yes,/
+26268_1_11,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_110,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,13,/,Ogawa,,1,yes,yes,/,/,partial,/,yes,yes,/
+26268_1_111,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_112,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1996,11,8,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_113,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,6,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_115,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,6,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_117,Argentina,NA,NA,  Argentina,NA,NA,NA,/,,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_118,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_119,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_12,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_120,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_121,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_123,Argentina,-27.013351,-65.236407, Tucumán Argentina,1997,1,23,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_124,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_125,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,6,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_126,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_128,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_129,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,6,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_13,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,partial,partial,/,/,yes,yes,/
+26268_1_130,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_131,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_132,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_133,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_134,Argentina,-22.056968,-63.690565,Salvador Mazza Salta Argentina,1997,1,23,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_135,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_14,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_140,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_141,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1996,6,6,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_142,Argentina,-27.013351,-65.236407, Tucumán Argentina,1996,5,28,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_143,Argentina,-34.59949,-58.342609, CABA Argentina,1996,4,24,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_144,Argentina,-27.013351,-65.236407, Tucumán Argentina,1996,5,28,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_145,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_148,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1996,6,6,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_149,Argentina,-27.013351,-65.236407, Tucumán Argentina,1996,2,28,/,Inaba,Q274trunc,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_15,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_152,Argentina,-24.832143,-65.539433, Salta Argentina,1992,10,24,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_154,Argentina,-24.832143,-65.539433, Salta Argentina,1992,9,1,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_155,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_157,Argentina,-24.832143,-65.539433, Salta Argentina,1992,10,19,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_158,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,5,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_159,Argentina,-24.832143,-65.539433, Salta Argentina,1992,11,13,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_16,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_160,Argentina,-24.832143,-65.539433, Salta Argentina,1992,10,19,/,Inaba,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_161,Argentina,-24.832143,-65.539433, Salta Argentina,1992,10,24,/,,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_164,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_169,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1996,6,6,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_17,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_171,Argentina,-34.59949,-58.342609, CABA Argentina,1996,4,9,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_174,Argentina,-30.27808,-60.844491, Santa Fe Argentina,1996,5,30,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_175,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_177,Argentina,-27.013351,-65.236407, Tucumán Argentina,1996,5,28,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_178,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_18,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_181,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_183,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_184,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_186,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_189,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,25,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_19,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,2,yes,yes,partial,partial,/,/,yes,yes,/
+26268_1_190,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,25,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_191,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,12,28,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_193,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,11,25,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_194,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,25,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_195,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,12,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_196,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,12,1,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_197,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,25,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_2,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_20,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_200,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,11,25,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_202,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_205,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_206,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_207,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,partial,/,/,/,yes,yes,/
+26268_1_208,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_209,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_21,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_210,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_211,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_212,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,6,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_214,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,6,3,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_215,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,6,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_216,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_217,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,/,partial,/,/,yes,yes,/
+26268_1_218,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_219,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_22,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_220,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,12,1,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_221,Argentina,-24.832143,-65.539433,Rio Bermejo Salta Argentina,1992,12,29,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_223,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_224,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_225,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_226,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,2000,2,11,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_227,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_228,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,1,13,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_229,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1992,12,28,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_23,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_230,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1992,12,28,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_231,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,12,1,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_233,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,12,28,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_234,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,12,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_235,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,12,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_236,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,12,22,/,Ogawa,,2,yes,yes,/,/,/,partial,yes,yes,/
+26268_1_237,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_238,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_239,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_24,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_240,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_241,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_242,Argentina,-24.832143,-65.539433, Salta Argentina,1992,2,10,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_243,Argentina,-34.59949,-58.342609, Buenos Aires Argentina,1992,2,17,/,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_245,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_246,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,2,24,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_247,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,4,1,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_249,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_25,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_250,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,3,26,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_251,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_252,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_253,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,3,26,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_255,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_256,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_258,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_26,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_260,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_262,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_263,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_264,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_265,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_266,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_267,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_268,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_269,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,15,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_27,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_270,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,3,26,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,partial,/
+26268_1_271,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_273,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_274,Argentina,-23.119228,-65.614263, Jujuy Argentina,1992,5,5,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_277,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_278,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_279,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,30,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,yes
+26268_1_28,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,4,1,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_281,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_283,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_285,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_287,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_289,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_29,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,4,1,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_290,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_291,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_292,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_293,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_294,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_295,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_296,Argentina,-25.496083,-64.971867,Metan  Salta Argentina,1993,2,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_297,Argentina,-27.013351,-65.236407, Tucumán Argentina,1993,3,8,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_298,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_299,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_30,Argentina,-23.201527,-64.094923,Embarcación Salta Argentina,1997,6,20,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_300,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_301,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_302,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,2,18,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_303,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_304,Argentina,-30.27808,-60.844491, Santa Fe Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_305,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_306,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_307,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_308,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_309,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_31,Argentina,-34.59949,-58.342609, CABA Argentina,1993,1,6,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_310,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_311,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_312,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_313,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_314,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_315,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_316,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,3,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_317,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,/,/,/,/,yes,yes,/
+26268_1_318,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,5,/,Inaba,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_319,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_32,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_320,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_321,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_322,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_323,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1994,2,17,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_325,Argentina,-24.832143,-65.539433, Salta Argentina,1992,2,10,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_326,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_327,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_328,Argentina,-30.27808,-60.844491, Santa Fe Argentina,1996,2,20,/,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_329,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_33,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_330,Argentina,-26.488976,-60.566951, Chaco Argentina,1994,2,15,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_331,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_332,Argentina,-23.119228,-65.614263, Jujuy Argentina,1994,1,17,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_333,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_335,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,5,10,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_34,Argentina,-26.177909,-58.188489, Formosa Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_341,Argentina,-30.27808,-60.844491, Santa Fe Argentina,1996,3,4,/,Inaba,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_342,Argentina,NA,NA,  Argentina,NA,NA,NA,/,,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_35,Argentina,-24.832143,-65.539433, Salta Argentina,1992,5,5,/,Inaba,N165fs,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_36,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_37,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_38,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_39,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_4,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,3,26,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_40,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_41,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,21,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_42,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_43,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_44,Argentina,-24.386536,-65.121305,Perico Jujuy Argentina,1993,2,3,/,Ogawa,,4,yes,yes,partial,interrupted,yes,partial,yes,yes,/
+26268_1_45,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_46,Argentina,-27.013351,-65.236407, Tucumán Argentina,1993,3,8,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_47,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_48,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_49,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_50,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,/,/
+26268_1_53,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_54,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_55,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_56,Argentina,-23.119228,-65.614263, Jujuy Argentina,1996,3,18,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_57,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_58,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_59,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_60,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_61,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_62,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,/,/,/,partial,yes,yes,/
+26268_1_63,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_64,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_65,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_66,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_67,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_68,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_69,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_7,Argentina,-34.59949,-58.342609, CABA Argentina,1992,3,12,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_70,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_71,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_72,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,3,2,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_73,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_74,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_75,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_76,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_78,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_79,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_8,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1992,4,1,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_80,Argentina,-23.32471,-64.223399,Pichanal  Salta Argentina,1993,1,20,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_81,Argentina,-24.386536,-65.121305,Perico Jujuy Argentina,1993,2,3,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_82,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,9,19,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_83,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_84,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_85,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_86,Argentina,-23.131883,-64.320651,Oran  Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,yes
+26268_1_87,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_88,Argentina,-24.268832,-62.733042,Santa Rosa Salta Argentina,1993,1,20,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_89,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_9,Argentina,-24.832143,-65.539433, Salta Argentina,1992,4,1,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_90,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_92,Argentina,-24.669386,-65.050415,Guemes Salta Argentina,1993,2,12,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_93,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,4,yes,yes,/,/,/,/,yes,yes,/
+26268_1_94,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,27,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_95,Argentina,-23.119228,-65.614263, Jujuy Argentina,1993,1,22,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_96,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1993,1,16,/,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_97,Argentina,-23.119228,-65.614263, Jujuy Argentina,1997,2,7,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_98,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1997,1,21,/,Ogawa,,1,yes,yes,yes,yes,yes,yes,yes,yes,/
+26268_1_99,Argentina,-22.520552,-63.801287,Tartagal Salta Argentina,1996,12,30,/,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+27059_8_314,Argentina,-24.832143,-65.539433, Salta Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+27059_8_315,Argentina,-24.832143,-65.539433, Salta Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+27059_8_316,Argentina,-24.832143,-65.539433, Salta Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+27059_8_320,Argentina,-23.119228,-65.614263, Jujuy Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+27059_8_322,Argentina,-24.832143,-65.539433, Salta Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+28103_1_191,Argentina,-24.832143,-65.539433, Salta Argentina,NA,NA,NA,/,,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+4056_6_10,Colombia,4.570868,-74.297333,Colombia,1992,NA,NA,ERR018146,Ogawa,,4,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+4056_6_12,Colombia,4.570868,-74.297333,Colombia,1992,NA,NA,ERR018148,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+4056_6_2,Colombia,4.570868,-74.297333,Colombia,1992,NA,NA,ERR018149,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+4056_6_9,Colombia,4.570868,-74.297333,Colombia,1992,NA,NA,ERR018156,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+4056_7_1,Argentina,NA,NA,Argentina,1992,NA,NA,ERR018158,Ogawa,,2,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+4056_7_10,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR018159,Inaba,N165fs,4,yes,fragmented,yes,yes,yes,yes,yes,yes,/
+4056_7_11,Bolivia,-16.290154,-63.588653,Bolivia,1992,NA,NA,ERR018160,Ogawa,,2,yes,yes_nunique,yes,yes,yes,yes,yes,yes,/
+4056_7_12,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR018161,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+4056_7_7,Argentina,NA,NA,Argentina,1992,NA,NA,ERR018167,Inaba,N165fs,4,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+4056_7_8,Argentina,NA,NA,Argentina,1992,NA,NA,ERR018168,Ogawa,,2,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+4056_8_8,Argentina,NA,NA,Argentina,1993,NA,NA,ERR018181,Ogawa,,4,yes,yes_nunique,yes,fragmented,yes,yes_nunique,yes,yes,yes
+5174_7_10,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR025378,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+5174_7_4,Angola,-11.202692,17.873887,Angola,1989,NA,NA,ERR025381,Inaba,,3,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+5174_8_1,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR025388,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+5174_8_2,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR025389,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+5174_8_3,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR025390,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+6437_7_10,Mexico,23.634501,-102.552784,Mexico,1994,NA,NA,ERR044787,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+6437_7_11,Mexico,23.634501,-102.552784,Mexico,1995,NA,NA,ERR044788,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+6437_7_3,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR044780,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+6437_7_5,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR044782,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+6437_7_7,Mexico,23.634501,-102.552784,Mexico,1993,NA,NA,ERR044784,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+7138_2_20,Mexico,23.634501,-102.552784,Mexico,2004,NA,NA,ERR108535,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+7138_2_21,Mexico,23.634501,-102.552784,Mexico,2005,NA,NA,ERR108536,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+7138_2_22,Mexico,23.634501,-102.552784,Mexico,2006,NA,NA,ERR108537,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_1,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR163233,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_13,Mexico,23.634501,-102.552784,Mexico,2004,NA,NA,ERR163245,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_14,Mexico,23.634501,-102.552784,Mexico,2004,NA,NA,ERR163246,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_15,Mexico,23.634501,-102.552784,Mexico,2004,NA,NA,ERR163247,Inaba,N165fs,4,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+8014_8_16,Mexico,23.634501,-102.552784,Mexico,2004,NA,NA,ERR163248,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_17,Mexico,23.634501,-102.552784,Mexico,2007,NA,NA,ERR163249,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_18,Mexico,23.634501,-102.552784,Mexico,2007,NA,NA,ERR163250,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_2,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR163234,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_21,Mexico,23.634501,-102.552784,Mexico,2008,NA,NA,ERR163253,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_22,Mexico,23.634501,-102.552784,Mexico,2008,NA,NA,ERR163254,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_23,Mexico,23.634501,-102.552784,Mexico,2008,NA,NA,ERR163255,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_24,Mexico,23.634501,-102.552784,Mexico,2008,NA,NA,ERR163256,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_27,Mexico,23.634501,-102.552784,Mexico,2010,NA,NA,ERR163259,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_28,Mexico,23.634501,-102.552784,Mexico,2010,NA,NA,ERR163260,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_3,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR163235,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_31,Mexico,23.634501,-102.552784,Mexico,2010,NA,NA,ERR163263,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_36,Mexico,23.634501,-102.552784,Mexico,2010,NA,NA,ERR163268,Inaba,Q274trunc,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_39,Mexico,23.634501,-102.552784,Mexico,2010,NA,NA,ERR163271,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_4,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR163236,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_5,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR163237,Inaba,N165fs,4,yes,yes,partial,yes,yes,yes,yes,yes,/
+8014_8_6,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR163238,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+8014_8_7,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR163239,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CDCC8798_rep,Uganda,1.373333,32.290275,Uganda,1992,NA,NA,ERR1877619      ,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CDCC8799_rep,Uganda,1.373333,32.290275,Uganda,1992,NA,NA,ERR1877636,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CDCF4170,Nigeria,9.081999,8.675277,Nigeria,1997,NA,NA,ERR1879657¬†¬†,Ogawa,,4,yes,yes,interrupted,yes,yes,yes,yes,yes,/
+CNRVC030089_TGACCA,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008340,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030098_ACAGTG,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008343,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030099_ATCACG,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008344,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030100_CGATGT,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008345,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030104_CTTGTA,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008346,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030106_TTAGGC,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,ERR2008347,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030107_CACGAT,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008348,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030109_ATGTCA,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008349,Inaba,N165fs,4,yes,yes,yes,yes,yes_nunique,yes,yes,yes,/
+CNRVC030110_AGTCAA,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008350,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030124_ACTTGA,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008358,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030125_CATGGC,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008359,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030126_GGCTAC,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008360,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,yes
+CNRVC030127_TAGCTT,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008361,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030128_CATTTT,Mexico,23.634501,-102.552784,Mexico,1992,NA,NA,ERR2008362,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030134_CTAGCT,Mexico,23.634501,-102.552784,Mexico,1993,NA,NA,ERR2008386,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030140_GTTTCG,Mexico,23.634501,-102.552784,Mexico,1993,NA,NA,ERR2008389,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC030141_GTAGAG,Mexico,23.634501,-102.552784,Mexico,1993,NA,NA,ERR2008390,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC150210_AGTCAA_L001,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR1879384¬†,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC150227_CACCGG_L001,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR1879435¬†¬†¬†¬†¬†,Ogawa,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC150231_CATGGC_L001,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR1879535¬†¬†¬†¬†¬†,Ogawa,,3,yes,yes,/,/,/,/,yes,yes,/
+CNRVC150245_GCGCTA_L001,Cote d'Ivoire,7.539989,-5.54708,Cote d'Ivoire,1988,NA,NA,ERR1879542¬†¬†¬†¬†¬†,Autoagglutinable,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160169_ACAGTG,Bolivia,-16.290154,-63.588653,Bolivia,1991,NA,NA,ERR2008756,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160170_GCCAAT,Brazil,-14.235004,-51.92528,Brazil,1991,NA,NA,ERR2008757,Ogawa,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160171_CAGATC,Brazil,-14.235004,-51.92528,Brazil,1991,NA,NA,ERR2008758,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160172_CTTGTA,Brazil,-14.235004,-51.92528,Brazil,1991,NA,NA,ERR2008759,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160173_ATCACG,Colombia,4.570868,-74.297333,Colombia,1991,NA,NA,ERR2008760,Inaba,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC160174_TTAGGC,Colombia,4.570868,-74.297333,Colombia,1992,NA,NA,ERR2008761,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC920176_ATCACG_L001,Sao Tome,0.18636,6.613081,Sao Tome,1989,NA,NA,ERR1879552¬†,Unknown,,3,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC930025_TCCCGA_L001,French Guiana,3.933889,-53.125782,French Guiana,1993,NA,NA,ERR1879554¬†¬†,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC940046_TCGAAG,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR2008762,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC940183_AGTTCC_L002,French Guiana,3.933889,-53.125782,French Guiana,1994,NA,NA,ERR1879578¬†,Ogawa,Q163S,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+CNRVC950014_ATGTCA_L002,Ecuador,-1.831239,-78.183406,Ecuador,1995,NA,NA,ERR1879579¬†,Ogawa,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+ERR576950,Chile,-35.675147,-71.542969,Chile,1991,NA,NA,ERR576950,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+ERR576973,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR576973,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+ERR580006,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,ERR580006,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+Indre91_1,Mexico,23.634501,-102.552784,Mexico,1991,NA,NA,GCA_000176435.1,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+SRR227318,Mexico,23.634501,-102.552784,Mexico,2008,NA,NA,SRR227318,Inaba,N165fs,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+SRR227336,Peru,-9.189967,-75.015152,Peru,1991,NA,NA,SRR227336,Ogawa,,2,yes,yes,yes,yes,yes,yes,yes,yes,/
+SRR491161,Brazil,-14.235004,-51.92528,Brazil,1992,NA,NA,SRR491161,Unknown,,4,yes,yes,yes,yes,yes,yes,yes,yes,/
+Vibrio_cholerae_A1552_GCF_002892855_1,California (traveller),36.778259,-119.417931,California (traveller),1992,NA,NA,GCF_002892855_1,Inaba,,4,/,/,/,/,/,/,/,/,/

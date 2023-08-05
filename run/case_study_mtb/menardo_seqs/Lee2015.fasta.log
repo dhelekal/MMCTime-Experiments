@@ -1,0 +1,427 @@
+IQ-TREE multicore version 2.2.2.7 COVID-edition for Linux 64-bit built Jun  7 2023
+Developed by Bui Quang Minh, James Barbetti, Nguyen Lam Tung,
+Olga Chernomor, Heiko Schmidt, Dominik Schrempf, Michael Woodhams, Ly Trong Nhan.
+
+Host:    taskfarm186.csc.warwick.ac.uk (AVX512, FMA3, 171 GB RAM)
+Command: iqtree -s ../menardo_seqs/Lee2015.fasta -m GTR+G -seed 789 -nt 8 -mem 32G
+Seed:    789 (Using SPRNG - Scalable Parallel Random Number Generator)
+Time:    Thu Aug  3 14:41:15 2023
+Kernel:  AVX+FMA - 8 threads (8 CPU cores detected)
+
+Reading alignment file ../menardo_seqs/Lee2015.fasta ... Fasta format detected
+Reading fasta file: done in 0.00097795 secs using 16.57% CPU
+Alignment most likely contains DNA/RNA sequences
+Constructing alignment: done in 0.00109113 secs using 405.9% CPU
+Alignment has 148 sequences with 454 columns, 293 distinct patterns
+211 parsimony-informative, 243 singleton sites, 0 constant sites
+         Gap/Ambiguity  Composition  p-value
+Analyzing sequences: done in 2.3846e-05 secs using 712.9% CPU
+   1  node219    0.00%    passed     71.56%
+   2  G22685     0.00%    passed     85.84%
+   3  G22684     0.00%    passed     84.00%
+   4  G22687     0.00%    passed     81.40%
+   5  G22686     0.00%    passed     87.37%
+   6  G22681     0.00%    passed     91.35%
+   7  G22680     0.00%    passed     98.50%
+   8  G22683     0.00%    passed     86.21%
+   9  G22682     0.00%    passed     87.37%
+  10  G22722     0.00%    passed     92.74%
+  11  G22723     0.00%    passed     98.50%
+  12  G22689     0.00%    passed     80.01%
+  13  G22688     0.00%    passed     85.84%
+  14  G22724     0.00%    passed     85.92%
+  15  G22725     0.00%    passed     82.20%
+  16  G22568     0.00%    passed     92.48%
+  17  G22717     0.00%    passed     95.98%
+  18  G22652     0.00%    passed     92.48%
+  19  G22573     0.00%    passed     78.94%
+  20  G22650     0.00%    passed     89.78%
+  21  G22651     0.00%    passed     92.48%
+  22  G22656     0.00%    passed     97.20%
+  23  G22657     0.00%    passed     75.99%
+  24  G22654     0.00%    passed     92.48%
+  25  G22655     0.00%    passed     71.61%
+  26  G22658     0.00%    passed     82.40%
+  27  G22659     0.00%    passed     92.48%
+  28  G22713     0.00%    passed     97.44%
+  29  G22712     0.00%    passed     92.48%
+  30  G22711     0.00%    passed     92.48%
+  31  G22710     0.00%    passed     89.21%
+  32  G22599     0.00%    passed     75.99%
+  33  G22598     0.00%    passed     88.64%
+  34  G22618     0.00%    passed     89.21%
+  35  G22619     0.00%    passed     85.17%
+  36  G22595     0.00%    passed     97.15%
+  37  G22617     0.00%    passed     90.12%
+  38  G22614     0.00%    passed     75.18%
+  39  G22596     0.00%    passed     84.88%
+  40  G22612     0.00%    passed     97.84%
+  41  G22613     0.00%    passed     92.09%
+  42  G22610     0.00%    passed     92.48%
+  43  G22592     0.00%    passed     96.95%
+  44  G22726     0.00%    passed     77.19%
+  45  G22733     0.00%    passed     92.48%
+  46  G22606     0.00%    passed     78.29%
+  47  G22669     0.00%    passed     87.87%
+  48  G22664     0.00%    passed     92.48%
+  49  G22616     0.00%    passed     89.21%
+  50  G22668     0.00%    passed     92.48%
+  51  G22727     0.00%    passed     98.50%
+  52  G22572     0.00%    passed     92.48%
+  53  G22597     0.00%    passed     89.01%
+  54  G22640     0.00%    passed     85.42%
+  55  G22643     0.00%    passed     94.27%
+  56  G22642     0.00%    passed     89.21%
+  57  G22645     0.00%    passed     92.48%
+  58  G22644     0.00%    passed     92.08%
+  59  G22579     0.00%    passed     90.12%
+  60  G22649     0.00%    passed     89.21%
+  61  G22730     0.00%    passed     98.50%
+  62  G22590     0.00%    passed     92.48%
+  63  G22565     0.00%    passed     92.48%
+  64  G22566     0.00%    passed     90.12%
+  65  G22567     0.00%    passed     85.52%
+  66  G22609     0.00%    passed     90.77%
+  67  G22593     0.00%    passed     89.21%
+  68  G22648     0.00%    passed     83.28%
+  69  G22605     0.00%    passed     89.21%
+  70  G22604     0.00%    passed     88.64%
+  71  G22607     0.00%    passed     92.48%
+  72  G22611     0.00%    passed     80.77%
+  73  G22615     0.00%    passed     90.12%
+  74  G22569     0.00%    passed     94.86%
+  75  G22603     0.00%    passed     92.86%
+  76  G22602     0.00%    passed     78.10%
+  77  G22708     0.00%    passed     99.64%
+  78  G22600     0.00%    passed     91.74%
+  79  G22709     0.00%    passed     97.87%
+  80  G22665     0.00%    passed     90.12%
+  81  G22608     0.00%    passed     75.99%
+  82  G22662     0.00%    passed     92.09%
+  83  G22678     0.00%    passed     90.20%
+  84  G22679     0.00%    passed     99.26%
+  85  G22674     0.00%    passed     98.41%
+  86  G22675     0.00%    passed     97.87%
+  87  G22676     0.00%    passed     97.24%
+  88  G22701     0.00%    passed     88.28%
+  89  G22670     0.00%    passed     98.50%
+  90  G22671     0.00%    passed     94.87%
+  91  G22672     0.00%    passed     98.50%
+  92  G22673     0.00%    passed     98.50%
+  93  G22638     0.00%    passed     89.21%
+  94  G22639     0.00%    passed     87.71%
+  95  G22571     0.00%    passed     97.87%
+  96  G22732     0.00%    passed     92.48%
+  97  G22577     0.00%    passed     89.74%
+  98  G22576     0.00%    passed     98.50%
+  99  G22575     0.00%    passed     90.12%
+ 100  G22574     0.00%    passed     92.78%
+ 101  G22631     0.00%    passed     92.48%
+ 102  G22632     0.00%    passed     98.77%
+ 103  G22633     0.00%    passed     98.77%
+ 104  G22634     0.00%    passed     99.50%
+ 105  G22635     0.00%    passed     99.46%
+ 106  G22636     0.00%    passed     99.46%
+ 107  G22637     0.00%    passed     92.48%
+ 108  G22696     0.00%    passed     83.79%
+ 109  G22697     0.00%    passed     97.16%
+ 110  G22695     0.00%    passed     78.77%
+ 111  G22692     0.00%    passed     98.93%
+ 112  G22693     0.00%    passed     91.37%
+ 113  G22690     0.00%    passed     91.37%
+ 114  G22591     0.00%    passed     93.24%
+ 115  G22703     0.00%    passed     75.99%
+ 116  G22698     0.00%    passed     73.70%
+ 117  G22699     0.00%    passed     89.28%
+ 118  G22627     0.00%    passed     92.48%
+ 119  G22626     0.00%    passed     92.48%
+ 120  G22625     0.00%    passed     73.70%
+ 121  G22624     0.00%    passed     93.78%
+ 122  G22623     0.00%    passed     89.21%
+ 123  G22622     0.00%    passed     92.48%
+ 124  G22621     0.00%    passed     92.48%
+ 125  G22620     0.00%    passed     92.48%
+ 126  G22663     0.00%    passed     99.95%
+ 127  G22601     0.00%    passed     82.98%
+ 128  G22660     0.00%    passed     85.45%
+ 129  G22667     0.00%    passed     92.09%
+ 130  G22666     0.00%    passed     84.88%
+ 131  G22629     0.00%    passed     92.48%
+ 132  G22628     0.00%    passed     99.60%
+ 133  G22704     0.00%    passed     79.06%
+ 134  G22705     0.00%    passed     97.15%
+ 135  G22706     0.00%    passed     77.89%
+ 136  G22707     0.00%    passed     85.59%
+ 137  G22700     0.00%    passed     91.74%
+ 138  G22653     0.00%    passed     90.35%
+ 139  G22702     0.00%    passed     79.06%
+ 140  G22589     0.00%    passed     92.48%
+ 141  G22586     0.00%    passed     74.28%
+ 142  G22587     0.00%    passed     95.14%
+ 143  G22584     0.00%    passed     96.95%
+ 144  G22585     0.00%    passed     75.99%
+ 145  G22582     0.00%    passed     92.48%
+ 146  G22583     0.00%    passed     89.21%
+ 147  G22580     0.00%    passed     75.99%
+ 148  G22581     0.00%    passed     75.99%
+****  TOTAL      0.00%  0 sequences failed composition chi2 test (p-value<5%; df=3)
+NOTE: G22688 is identical to G22685 but kept for subsequent analysis
+NOTE: G22670 is identical to G22680 but kept for subsequent analysis
+NOTE: G22727 is identical to G22723 but kept for subsequent analysis
+NOTE: G22712 is identical to G22568 but kept for subsequent analysis
+NOTE: G22651 is identical to G22652 but kept for subsequent analysis
+NOTE: G22599 is identical to G22657 but kept for subsequent analysis
+NOTE: G22618 is identical to G22710 but kept for subsequent analysis
+NOTE: G22604 is identical to G22598 but kept for subsequent analysis
+NOTE: G22615 is identical to G22617 but kept for subsequent analysis
+NOTE: G22584 is identical to G22592 but kept for subsequent analysis
+NOTE: G22571 is identical to G22709 but kept for subsequent analysis
+NOTE: G22633 is identical to G22632 but kept for subsequent analysis
+NOTE: G22636 is identical to G22635 but kept for subsequent analysis
+NOTE: G22690 is identical to G22693 but kept for subsequent analysis
+NOTE: G22625 is identical to G22698 but kept for subsequent analysis
+NOTE: G22702 is identical to G22704 but kept for subsequent analysis
+Checking for duplicate sequences: done in 0.000569429 secs using 795.2% CPU
+Identifying sites to remove: done in 0.00063808 secs using 796.6% CPU
+NOTE: 37 identical sequences (see below) will be ignored for subsequent analysis
+NOTE: G22672 (identical to G22680) is ignored but added at the end
+NOTE: G22673 (identical to G22680) is ignored but added at the end
+NOTE: G22711 (identical to G22568) is ignored but added at the end
+NOTE: G22664 (identical to G22568) is ignored but added at the end
+NOTE: G22645 (identical to G22568) is ignored but added at the end
+NOTE: G22565 (identical to G22568) is ignored but added at the end
+NOTE: G22732 (identical to G22568) is ignored but added at the end
+NOTE: G22637 (identical to G22568) is ignored but added at the end
+NOTE: G22627 (identical to G22568) is ignored but added at the end
+NOTE: G22622 (identical to G22568) is ignored but added at the end
+NOTE: G22629 (identical to G22568) is ignored but added at the end
+NOTE: G22654 (identical to G22652) is ignored but added at the end
+NOTE: G22659 (identical to G22652) is ignored but added at the end
+NOTE: G22610 (identical to G22652) is ignored but added at the end
+NOTE: G22733 (identical to G22652) is ignored but added at the end
+NOTE: G22668 (identical to G22652) is ignored but added at the end
+NOTE: G22572 (identical to G22652) is ignored but added at the end
+NOTE: G22590 (identical to G22652) is ignored but added at the end
+NOTE: G22607 (identical to G22652) is ignored but added at the end
+NOTE: G22631 (identical to G22652) is ignored but added at the end
+NOTE: G22626 (identical to G22652) is ignored but added at the end
+NOTE: G22621 (identical to G22652) is ignored but added at the end
+NOTE: G22620 (identical to G22652) is ignored but added at the end
+NOTE: G22589 (identical to G22652) is ignored but added at the end
+NOTE: G22582 (identical to G22652) is ignored but added at the end
+NOTE: G22608 (identical to G22657) is ignored but added at the end
+NOTE: G22585 (identical to G22657) is ignored but added at the end
+NOTE: G22580 (identical to G22657) is ignored but added at the end
+NOTE: G22581 (identical to G22657) is ignored but added at the end
+NOTE: G22616 (identical to G22710) is ignored but added at the end
+NOTE: G22642 (identical to G22710) is ignored but added at the end
+NOTE: G22649 (identical to G22710) is ignored but added at the end
+NOTE: G22593 (identical to G22710) is ignored but added at the end
+NOTE: G22605 (identical to G22710) is ignored but added at the end
+NOTE: G22638 (identical to G22710) is ignored but added at the end
+NOTE: G22665 (identical to G22617) is ignored but added at the end
+NOTE: G22575 (identical to G22617) is ignored but added at the end
+Alignment was printed to ../menardo_seqs/Lee2015.fasta.uniqueseq.phy
+
+For your convenience alignment with unique sequences printed to ../menardo_seqs/Lee2015.fasta.uniqueseq.phy
+
+Create initial parsimony tree by phylogenetic likelihood library (PLL)... 0.004 seconds
+
+NOTE: 4 MB RAM (0 GB) is required!
+WARNING: Number of threads seems too high for short alignments. Use -T AUTO to determine best number of threads.
+Estimate model parameters (epsilon = 0.100)
+1. Initial log-likelihood: -3623.144
+2. Current log-likelihood: -3348.065
+3. Current log-likelihood: -3346.241
+Optimal log-likelihood: -3346.240
+Rate parameters:  A-C: 1.25477  A-G: 2.40997  A-T: 0.31339  C-G: 0.39297  C-T: 2.38574  G-T: 1.00000
+Base frequencies:  A: 0.169  C: 0.323  G: 0.353  T: 0.155
+Gamma shape alpha: 998.447
+Parameters optimization took 3 rounds (0.076 sec)
+Wrote distance file to... 
+Computing ML distances based on estimated model parameters...
+Calculating distance matrix: done in 0.00340318 secs using 795.5% CPU
+Computing ML distances took 0.003592 sec (of wall-clock time) 0.028265 sec (of CPU time)
+Setting up auxiliary I and S matrices: done in 0.000650941 secs using 461% CPU
+Constructing RapidNJ tree: done in 0.0579189 secs using 47.6% CPU
+Computing RapidNJ tree took 0.058651 sec (of wall-clock time) 0.030642 sec (of CPU time)
+Log-likelihood of RapidNJ tree: -3346.292
+--------------------------------------------------------------------
+|             INITIALIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Generating 98 parsimony trees... 0.501 second
+Computing log-likelihood of 98 initial trees ... 0.511 seconds
+Current best score: -3346.240
+
+Do NNI search on 20 best initial trees
+Optimizing NNI: done in 0.0274933 secs using 791.2% CPU
+Estimate model parameters (epsilon = 0.100)
+BETTER TREE FOUND at iteration 1: -3346.240
+Optimizing NNI: done in 0.0277009 secs using 790.2% CPU
+BETTER TREE FOUND at iteration 2: -3346.240
+Optimizing NNI: done in 0.0272425 secs using 787.5% CPU
+Optimizing NNI: done in 0.0272115 secs using 797.8% CPU
+Optimizing NNI: done in 0.027211 secs using 787.5% CPU
+BETTER TREE FOUND at iteration 5: -3346.240
+Optimizing NNI: done in 0.02745 secs using 794% CPU
+Optimizing NNI: done in 0.0280266 secs using 787.9% CPU
+Optimizing NNI: done in 0.0268262 secs using 790.7% CPU
+Optimizing NNI: done in 0.0279526 secs using 790.9% CPU
+Optimizing NNI: done in 0.028069 secs using 794.4% CPU
+Iteration 10 / LogL: -3346.240 / Time: 0h:0m:1s
+Optimizing NNI: done in 0.0272484 secs using 780.2% CPU
+BETTER TREE FOUND at iteration 11: -3346.240
+Optimizing NNI: done in 0.0273821 secs using 790.4% CPU
+Optimizing NNI: done in 0.0276378 secs using 783.8% CPU
+Optimizing NNI: done in 0.0279601 secs using 790.9% CPU
+Optimizing NNI: done in 0.0272912 secs using 794.8% CPU
+Optimizing NNI: done in 0.0276016 secs using 791% CPU
+Optimizing NNI: done in 0.0271637 secs using 790.5% CPU
+Optimizing NNI: done in 0.0273788 secs using 783.2% CPU
+BETTER TREE FOUND at iteration 18: -3346.240
+Optimizing NNI: done in 0.0274269 secs using 794.6% CPU
+Optimizing NNI: done in 0.0273221 secs using 798% CPU
+Iteration 20 / LogL: -3346.240 / Time: 0h:0m:1s
+Finish initializing candidate tree set (20)
+Current best tree score: -3346.240 / CPU time: 1.602
+Number of iterations: 20
+--------------------------------------------------------------------
+|               OPTIMIZING CANDIDATE TREE SET                      |
+--------------------------------------------------------------------
+Optimizing NNI: done in 0.121696 secs using 785.1% CPU
+Optimizing NNI: done in 0.126949 secs using 792.7% CPU
+Optimizing NNI: done in 0.113028 secs using 791% CPU
+Optimizing NNI: done in 0.121553 secs using 794% CPU
+Optimizing NNI: done in 0.121711 secs using 795.7% CPU
+Optimizing NNI: done in 0.101621 secs using 790.2% CPU
+Optimizing NNI: done in 0.125626 secs using 787.8% CPU
+Optimizing NNI: done in 0.124161 secs using 790.9% CPU
+Optimizing NNI: done in 0.0772895 secs using 791.7% CPU
+Optimizing NNI: done in 0.0996954 secs using 794.1% CPU
+Iteration 30 / LogL: -3346.251 / Time: 0h:0m:3s (0h:0m:9s left)
+Optimizing NNI: done in 0.10366 secs using 793.3% CPU
+Optimizing NNI: done in 0.0971532 secs using 788.9% CPU
+Optimizing NNI: done in 0.120885 secs using 792.3% CPU
+Optimizing NNI: done in 0.105906 secs using 787.7% CPU
+Optimizing NNI: done in 0.0936979 secs using 793.9% CPU
+Optimizing NNI: done in 0.10555 secs using 790.6% CPU
+Optimizing NNI: done in 0.134317 secs using 789.2% CPU
+Optimizing NNI: done in 0.136262 secs using 790.8% CPU
+Optimizing NNI: done in 0.11967 secs using 794.8% CPU
+Optimizing NNI: done in 0.166523 secs using 791.5% CPU
+Iteration 40 / LogL: -3346.252 / Time: 0h:0m:4s (0h:0m:8s left)
+Optimizing NNI: done in 0.119698 secs using 790.6% CPU
+Optimizing NNI: done in 0.121145 secs using 790.7% CPU
+Optimizing NNI: done in 0.169051 secs using 787.5% CPU
+Optimizing NNI: done in 0.128991 secs using 790.4% CPU
+Optimizing NNI: done in 0.120568 secs using 788.2% CPU
+Optimizing NNI: done in 0.110786 secs using 787.3% CPU
+Optimizing NNI: done in 0.112794 secs using 788.3% CPU
+Optimizing NNI: done in 0.096634 secs using 792.9% CPU
+Optimizing NNI: done in 0.0922491 secs using 794.9% CPU
+Optimizing NNI: done in 0.109868 secs using 792.7% CPU
+Iteration 50 / LogL: -3346.247 / Time: 0h:0m:5s (0h:0m:7s left)
+Optimizing NNI: done in 0.1152 secs using 791.2% CPU
+Optimizing NNI: done in 0.114859 secs using 791.2% CPU
+Optimizing NNI: done in 0.135578 secs using 790.7% CPU
+Optimizing NNI: done in 0.107324 secs using 788.8% CPU
+Optimizing NNI: done in 0.144709 secs using 793.3% CPU
+Optimizing NNI: done in 0.10394 secs using 790.4% CPU
+Optimizing NNI: done in 0.0906633 secs using 791.5% CPU
+Optimizing NNI: done in 0.0961547 secs using 789.8% CPU
+Optimizing NNI: done in 0.13374 secs using 789.9% CPU
+Optimizing NNI: done in 0.132679 secs using 789.1% CPU
+Iteration 60 / LogL: -3346.249 / Time: 0h:0m:6s (0h:0m:6s left)
+Optimizing NNI: done in 0.134802 secs using 794.4% CPU
+Optimizing NNI: done in 0.125944 secs using 788.6% CPU
+Optimizing NNI: done in 0.122841 secs using 794% CPU
+Optimizing NNI: done in 0.152706 secs using 786.3% CPU
+Optimizing NNI: done in 0.100715 secs using 789.2% CPU
+Optimizing NNI: done in 0.110434 secs using 784.6% CPU
+Optimizing NNI: done in 0.112142 secs using 788.3% CPU
+Optimizing NNI: done in 0.111207 secs using 791.8% CPU
+Optimizing NNI: done in 0.137293 secs using 790.8% CPU
+Optimizing NNI: done in 0.102882 secs using 795.2% CPU
+Iteration 70 / LogL: -3346.248 / Time: 0h:0m:7s (0h:0m:5s left)
+Optimizing NNI: done in 0.0984343 secs using 788% CPU
+Optimizing NNI: done in 0.124719 secs using 788.5% CPU
+Optimizing NNI: done in 0.121979 secs using 792.4% CPU
+Optimizing NNI: done in 0.118757 secs using 788% CPU
+Optimizing NNI: done in 0.137935 secs using 791.6% CPU
+Optimizing NNI: done in 0.0849154 secs using 794.6% CPU
+Optimizing NNI: done in 0.0965646 secs using 787.8% CPU
+Optimizing NNI: done in 0.10435 secs using 792.3% CPU
+Optimizing NNI: done in 0.0915488 secs using 793.7% CPU
+Optimizing NNI: done in 0.140465 secs using 790.3% CPU
+Iteration 80 / LogL: -3346.251 / Time: 0h:0m:9s (0h:0m:4s left)
+Optimizing NNI: done in 0.102554 secs using 793.2% CPU
+Optimizing NNI: done in 0.111365 secs using 785.6% CPU
+Optimizing NNI: done in 0.128557 secs using 793.4% CPU
+Optimizing NNI: done in 0.132664 secs using 791.3% CPU
+Optimizing NNI: done in 0.112888 secs using 791.1% CPU
+Optimizing NNI: done in 0.110931 secs using 784.6% CPU
+Optimizing NNI: done in 0.120488 secs using 791.5% CPU
+Optimizing NNI: done in 0.115349 secs using 792% CPU
+Optimizing NNI: done in 0.141269 secs using 789.6% CPU
+Optimizing NNI: done in 0.133361 secs using 789.9% CPU
+Iteration 90 / LogL: -3346.247 / Time: 0h:0m:10s (0h:0m:3s left)
+Optimizing NNI: done in 0.0985744 secs using 790% CPU
+Optimizing NNI: done in 0.127262 secs using 794.2% CPU
+Optimizing NNI: done in 0.114673 secs using 792% CPU
+Optimizing NNI: done in 0.132878 secs using 789.1% CPU
+Optimizing NNI: done in 0.142397 secs using 792.5% CPU
+Optimizing NNI: done in 0.114602 secs using 785.9% CPU
+Optimizing NNI: done in 0.100293 secs using 791.1% CPU
+Optimizing NNI: done in 0.124192 secs using 789.3% CPU
+Optimizing NNI: done in 0.101658 secs using 791.2% CPU
+Optimizing NNI: done in 0.149255 secs using 792.8% CPU
+Iteration 100 / LogL: -3346.249 / Time: 0h:0m:11s (0h:0m:2s left)
+Optimizing NNI: done in 0.119078 secs using 789.7% CPU
+Optimizing NNI: done in 0.135234 secs using 793.7% CPU
+Optimizing NNI: done in 0.1237 secs using 790.8% CPU
+Optimizing NNI: done in 0.132646 secs using 792.8% CPU
+Optimizing NNI: done in 0.128839 secs using 791.2% CPU
+Optimizing NNI: done in 0.122049 secs using 791.6% CPU
+Optimizing NNI: done in 0.132976 secs using 792.8% CPU
+Optimizing NNI: done in 0.107868 secs using 788.9% CPU
+Optimizing NNI: done in 0.135774 secs using 790.8% CPU
+Optimizing NNI: done in 0.116168 secs using 795.5% CPU
+Iteration 110 / LogL: -3367.008 / Time: 0h:0m:12s (0h:0m:0s left)
+Optimizing NNI: done in 0.0948388 secs using 794.9% CPU
+Optimizing NNI: done in 0.0937194 secs using 793.8% CPU
+Optimizing NNI: done in 0.122012 secs using 788.3% CPU
+Optimizing NNI: done in 0.115787 secs using 792.1% CPU
+Optimizing NNI: done in 0.117186 secs using 793% CPU
+Optimizing NNI: done in 0.0908043 secs using 788.2% CPU
+Optimizing NNI: done in 0.126346 secs using 791% CPU
+Optimizing NNI: done in 0.0923115 secs using 791.6% CPU
+Optimizing NNI: done in 0.133776 secs using 789.9% CPU
+TREE SEARCH COMPLETED AFTER 119 ITERATIONS / Time: 0h:0m:13s
+
+--------------------------------------------------------------------
+|                    FINALIZING TREE SEARCH                        |
+--------------------------------------------------------------------
+Performs final model parameters optimization
+Estimate model parameters (epsilon = 0.010)
+1. Initial log-likelihood: -3346.240
+Optimal log-likelihood: -3346.240
+Rate parameters:  A-C: 1.25478  A-G: 2.40996  A-T: 0.31338  C-G: 0.39285  C-T: 2.38574  G-T: 1.00000
+Base frequencies:  A: 0.169  C: 0.323  G: 0.353  T: 0.155
+Gamma shape alpha: 998.447
+Parameters optimization took 1 rounds (0.016 sec)
+BEST SCORE FOUND : -3346.240
+Total tree length: 1.037
+
+Total number of iterations: 119
+CPU time used for tree search: 103.414 sec (0h:1m:43s)
+Wall-clock time used for tree search: 13.526 sec (0h:0m:13s)
+Total CPU time used: 104.425 sec (0h:1m:44s)
+Total wall-clock time used: 13.862 sec (0h:0m:13s)
+
+Analysis results written to: 
+  IQ-TREE report:                ../menardo_seqs/Lee2015.fasta.iqtree
+  Maximum-likelihood tree:       ../menardo_seqs/Lee2015.fasta.treefile
+  Likelihood distances:          ../menardo_seqs/Lee2015.fasta.mldist
+  Screen log file:               ../menardo_seqs/Lee2015.fasta.log
+
+Date and Time: Thu Aug  3 14:41:29 2023

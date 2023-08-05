@@ -1,0 +1,80 @@
+---
+title: "Multimerger Case Study: Vibrio Cholera in Argentina"
+output: rmarkdown::html_document
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4, tibble.print_max = 4)
+```
+
+Load Packages
+```{r}
+library(MMCTime)
+library(ggplot2)
+library(ape)
+library(ggtree)
+library(posterior)
+library(reshape2)
+
+set.seed(12343)
+run_mcmc <- T
+```
+
+Preprocess the tree from https://microreact.org/project/VAZD_K0kZ 
+```{r}
+#Xavier's Script
+tree <- read.tree('tree.nwk')
+data <- read.csv('data.csv')
+
+tree$edge.length<-tree$edge.length*7556#from legend of Fig2
+dates<-data$year+(data$month-1)/12+(data$day-1)/365
+names(dates)<-data$id
+
+#Subset to argentina only and drop missing dates
+w<-which(data$country!='Argentina'|is.na(dates))
+tree <- drop.tip(tree,data$id[w])
+
+tree$edge.length<-round(tree$edge.length)
+dates <- dates[tree$tip.label]
+```
+Plot the mutation scaled phylogeny
+```{r, out.width="100%"}
+ggtree(tree) + theme_tree2() + scale_x_ggtree()
+```
+
+Run MMCTime under Modified Beta, as well as under Kingman for comparison
+```{r, eval=run_mcmc}
+res_kmb <- mmctime(tree, dates, n_draws=1e3L, thin=2e3L, n_chain=4, model="km_beta", verbose=F, fix_root=T)
+saveRDS(res_kmb, "res_kmb.rds")
+res_km <- mmctime(tree, dates, n_draws=1e3L, thin=2e3L, n_chain=4, model="kingman", verbose=F, fix_root=T)
+saveRDS(res_km, "res_km.rds")
+```
+Or load a saved run
+```{r, eval=!run_mcmc}
+res_kmb <- readRDS("res_kmb.rds")
+res_km <- readRDS("res_km.rds")
+```
+
+Inspect the posterior summaries
+```{r}
+print(res_kmb$summaries, n=20)
+```
+Plot a summary tree
+```{r, out.width="100%"}
+p <- plot_treeCI(res_kmb, mrsd=max(dates))
+p
+```
+
+And for comparison 9 posterior draws
+```{r, out.width="100%"}
+ggtree(sample_timetree(res_kmb,9)) + theme_tree2() + scale_x_ggtree() + facet_wrap(~.id, ncol=3)
+```
+Plot a pairs plot
+```{r, out.width="100%",eval=F}
+plot_pars(res_kmb)
+```
+Inspect traces
+```{r, out.width="100%"}
+plot_traces(res_kmb)
+```
