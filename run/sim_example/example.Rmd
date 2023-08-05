@@ -1,0 +1,154 @@
+---
+title: "Multimerger Timing Example"
+output: rmarkdown::html_document
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4, tibble.print_max = 4)
+```
+
+Load Packages
+```{r}
+library(MMCTime)
+library(ggplot2)
+library(ape)
+library(ggtree)
+library(treeio)
+library(dplyr)
+library(posterior)
+library(reshape2)
+library(patchwork)
+
+set.seed(2)
+run_mcmc <- F
+run_sim <- F
+```
+```{r}
+sim_tre <- function(model, seed, ...)
+{
+    n_tips <- 200
+    mu <- 1.0
+    sigma <- 1.0
+    nsites <- 10000L
+
+    samp_times <- 2020:2011
+    n_samp <- as.vector(rmultinom(1, n_tips, rep(1/10, 10)))
+
+    sim <- NA
+    if (model == "km_beta")
+    {
+        sim <- simulate_km_beta(samp_times, n_samp, ...)
+    }
+    else if (model == "beta") 
+    {
+        sim <- simulate_beta(samp_times, n_samp, ...)
+    } else if (model=="kingman") 
+    {
+        sim <- simulate_kingman(samp_times, n_samp, ...)
+    } else 
+    {
+        stop("Unrecognised model")
+    }
+
+    phy_clock <- multi2di(sim$phy)
+    phy_clock$edge.length <- sapply(phy_clock$edge.length, function (x) if(abs(x) < 1e-8) 0 else rgamma(1,shape = x * mu / sigma, scale = sigma))
+    phy_clock$node.label <- NULL
+    
+    system(sprintf('mkdir tmp'))
+
+    write.tree(phy_clock, "tmp/tree_clock.nwk")
+
+    system(sprintf('cd tmp; seq-gen -l %d -s %f -m HKY -z %d < tree_clock.nwk > seqs.nex',nsites,1/nsites,seed))
+    system(sprintf('cd tmp; iqtree -s seqs.nex -m HKY -seed %d -nt 1 -mem 4G', seed))
+
+    phy_ml <- read.tree(paste0("tmp/seqs.nex.treefile"))
+    phy_ml$edge.length <- phy_ml$edge.length*nsites
+
+    system(sprintf('rm -r tmp'))
+
+    return(list(dates=sim$dates, phy_gt=sim$phy, phy_clock=phy_clock, phy_ml=phy_ml))
+}
+```
+
+Simulate a Genealogy From the Beta Coalescent
+```{r, eval=run_sim}
+sim_beta <- sim_tre("beta", 2, nu=1/12, alpha=0.5)
+sim_kmb <- sim_tre("km_beta", 3, nu=1/12, alpha=0.2, phi=0.4)
+
+saveRDS(sim_beta,"sim_beta.rds")
+saveRDS(sim_kmb,"sim_kmb.rds")
+```
+```{r, eval=!run_sim}
+sim_beta <- readRDS("sim_beta.rds")
+sim_kmb <- readRDS("sim_kmb.rds")
+```
+
+Beta Trees
+```{r}
+ggtree(sim_beta$phy_gt) + theme_tree2() + geom_tiplab()+  scale_x_ggtree()
+ggtree(sim_beta$phy_ml) + theme_tree2() + geom_tiplab()+  scale_x_ggtree()
+```
+Modified Beta Trees
+```{r}
+ggtree(sim_kmb$phy_gt) + theme_tree2() + geom_tiplab()+  scale_x_ggtree()
+ggtree(sim_kmb$phy_ml) + theme_tree2() + geom_tiplab()+  scale_x_ggtree()
+```
+
+Run & Time Inference 
+```{r}
+time_phy <- function(sim, mod)
+{
+    phy <- sim$phy_ml
+    n_tip <- length(phy$tip.label)
+    pos <- sample(1:(n_tip - 2),1)
+    outgroup <- ifelse(pos > n_tip, extract.clade(phy, pos)$tip.label, phy$tip.label[pos])
+    phy <- root(phy,outgroup=outgroup, resolve.root=T)
+    phy$edge.length <- round(phy$edge.length)
+
+    res <- mmctime(phy, sim$dates, n_draws=1e3L, thin=2e3L, n_chain=4, model=mod, verbose=F)
+    return(res)
+}
+```
+```{r, eval=run_mcmc}
+res_beta <- time_phy(sim_beta, "beta")
+res_kmb <- time_phy(sim_kmb, "km_beta")
+```
+```{r, eval=run_mcmc}
+saveRDS(res_beta, "res_beta.rds")
+saveRDS(res_kmb, "res_kmb.rds")
+```
+
+```{r, eval=!run_mcmc}
+res_beta <- readRDS("res_beta.rds")
+res_kmb <- readRDS("res_kmb.rds")
+```
+
+```{r}
+side_by_side <- function(phy_gt, res)
+{
+    n <- length(phy_gt$tip.label)
+    m <- nrow(phy_gt$edge) - n + 1
+    phy_gt <- di2multi(phy_gt)
+    msize_node <- unname(c(rep(1,n),table(phy_gt$edge[,1])))
+    msize_outgoing <- rep(NA, n+m)
+    for (i in 1:nrow(phy_gt$edge))
+    {
+        msize_outgoing[phy_gt$edge[i,2]] <- msize_node[phy_gt$edge[i,1]]
+    }
+    phy_gt.tbl <- phy_gt %>% as_tibble %>% mutate(
+        msize = msize_outgoing
+    ) %>% 
+    as.treedata
+}
+```
+
+```{r,eval=T}
+plot_treeCI(res_beta)
+ggtree(sample_timetree(res_beta,16)) + theme_tree2() + facet_wrap(~.id, ncol=4)
+```
+
+```{r,eval=T}
+plot_treeCI(res_kmb)
+ggtree(sample_timetree(res_kmb,16)) + theme_tree2() + facet_wrap(~.id, ncol=4)
+```
