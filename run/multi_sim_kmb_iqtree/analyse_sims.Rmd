@@ -1,0 +1,282 @@
+---
+title: "Multimerger Timing Simulation Analysis"
+output: rmarkdown::html_document
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4, tibble.print_max = 4)
+```
+
+Load Packages
+```{r}
+library(MMCTime)
+library(ggplot2)
+library(ape)
+library(posterior)
+library(reshape2)
+library(patchwork)
+library(dplyr)
+```
+
+
+Ingest Data
+```{r}
+phi_sets <- 4L
+mut_sets <- 3L
+set_size <- 48L
+
+n_tips<-200
+
+nu <- 1/10
+alphas <- seq(from=0.01, to=.75, length.out=set_size)
+phis <- c(0.0, 0.5, 0.75, 1.0)
+mus <- c(1.5, 3.0, 6.0)
+sigmas <- c(0.5, 1.0, 2.0)
+root_n <- "t_201"
+height_n <- "rel_height"
+
+f <- function(clock, phi_idx, run_idx)
+{
+    idx <- (phi_idx-1L) * set_size + run_idx
+    res<-readRDS(paste0("./mut",clock,"/ana_out/res_", idx, ".rds"))
+    tmp <- as.data.frame(res$summaries[,c("variable", "median", "q5", "q95", "rhat", "ess_bulk")])
+    tmp$run_idx <- run_idx
+    tmp$phi_idx <- phi_idx
+    tmp$clock <- clock
+
+    g <- function(x)
+    {
+        y <- node.depth.edgelength(read.tree(paste0("./gt/tree_",x,".nwk")))
+        return(max(y))
+    }
+
+    gt_h <- g(idx)
+    tmp[tmp$variable == root_n, c("q5","median","q95")] <- (tmp[tmp$variable == root_n, c("q5","median","q95")]-gt_h)/gt_h
+    tmp[tmp$variable == root_n,"variable"] = height_n
+
+    return(tmp)
+}
+
+dfs <- do.call(rbind, lapply(1L:mut_sets,
+    function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+        function(j) lapply(1L:set_size,
+            function(k) f(i,j,k)))))))
+```
+
+Plot Stuff
+```{r}
+vnames <- c("phi", "alpha", "nu","sigma","mu", height_n)
+subset_v <- function (df, v) df[df$variable==v,]
+relab <- function (df) df %>%
+  mutate(phi_idx = recode(phi_idx, "1" = "0.0", "2" = "0.5", "3" = "0.75", "4"="1.0"))
+sum_plt <- function(df, vname)
+{
+    allDf <- df[df$variable %in% vnames,]
+    
+    gt_df <- do.call(rbind, lapply(1L:mut_sets,
+        function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+            function(j) lapply(1L:set_size,
+                function(k) data.frame(clock=i,phi_idx=j, run_idx=k)))))))
+    gt_df$phi <- apply(gt_df, 1, function(x) phis[x[2]])
+    gt_df$alpha <- apply(gt_df, 1, function(x) alphas[x[3]])
+
+    gt_df$mu <- apply(gt_df, 1, function(x) mus[x[1]])
+    gt_df$sigma <- apply(gt_df, 1, function(x) sigmas[x[1]])
+
+    gt_df$nu <- nu
+    gt_df$rel_height <- 0.0
+
+    gt_df <- melt(gt_df, measure.vars=vnames)
+    gt_df$variable <- factor(gt_df$variable, levels=vnames)
+    allDf$variable <- factor(allDf$variable, levels=vnames)
+
+    conv_df <- do.call(rbind, lapply(1L:mut_sets,
+        function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+            function(j) lapply(1L:set_size,
+                function(k) data.frame(clock=i,phi_idx=j, run_idx=k)))))))
+
+
+    conv_df$conv <- apply(conv_df, 1, function(x)  all((df[which((df$clock == x[1]) & (df$phi_idx == x[2]) &  (df$run_idx == x[3])),]$ess_bulk>200)) && 
+        all(df[which((df$clock == x[1]) & (df$phi_idx == x[2]) &  (df$run_idx == x[3])),]$rhat < 1.05))
+    conv_df$variable <- vname
+    conv_df <- conv_df[!conv_df$conv, ]
+    conv_df$variable <- factor(conv_df$variable, levels=vnames)
+
+    gt_df <- subset_v(gt_df, vname)
+    allDf <- subset_v(allDf, vname)
+
+    allDf <- relab(allDf)
+    gt_df <- relab(gt_df)
+    conv_df <- relab(conv_df)
+
+    ggplot(allDf, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
+    geom_errorbar(width=.1, , alpha=0.4) +
+    geom_point(size=.5, alpha=0.8) + 
+    geom_point(data=conv_df, aes(x=run_idx, y=-Inf), color="red", size=2.0, shape=4, inherit.aes=F) +
+    geom_line(data=gt_df, aes(x=run_idx, y=value),color="red", inherit.aes=F) +
+    facet_grid(rows = vars(phi_idx), cols=vars(clock),labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
+    theme_minimal()+
+    labs(x="Run") +
+    coord_cartesian(clip = 'off') +
+    ggtitle(vname) +
+    theme(
+        axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0))) 
+}
+```
+```{r}
+p <- sum_plt(dfs, "phi")
+pdf("../manuscript_figs/kmb_phi.pdf",8,8)
+plot(p)
+dev.off()
+p
+```
+
+```{r}
+p <- sum_plt(dfs, "alpha")
+pdf("../manuscript_figs/kmb_alpha.pdf",8,8)
+plot(p)
+dev.off()
+p
+```
+```{r}
+p <- sum_plt(dfs, "nu")
+pdf("../manuscript_figs/kmb_nu.pdf",8,8)
+plot(p)
+dev.off()
+p
+```
+```{r}
+p <- sum_plt(dfs, "mu")
+pdf("../manuscript_figs/kmb_mu.pdf",8,8)
+plot(p)
+dev.off()
+p
+```
+```{r}
+p <- sum_plt(dfs, "sigma")
+pdf("../manuscript_figs/kmb_sigma.pdf",8,8)
+plot(p)
+dev.off()
+p
+```
+```{r}
+p <- sum_plt(dfs, height_n)
+pdf(paste0("../manuscript_figs/kmb_height", height_n, ".pdf"),8,8)
+plot(p)
+dev.off()
+p
+```
+
+```{r}
+h <- function(clock, phi_idx, run_idx)
+{
+    idx <- (phi_idx-1L) * set_size + run_idx
+    res<-readRDS(paste0("./mut",clock,"/ana_out/res_", idx, ".rds"))
+    q_idx <- which(colnames(res$draws) %in% paste0("q_",1:(2*n_tips-1)))
+    bcounts <- apply(res$draws, 1, function(x) sum(1-x[q_idx])) - 1 ##root has a q but no branch
+
+    g <- function(x)
+    {
+        nrow(di2multi(read.tree(paste0("./gt/tree_",x,".nwk")))$edge)
+    }
+
+    gt_br <- g(idx)
+    b_ci <- quantile(bcounts-gt_br, probs = c(0.025, .5, 0.975))
+    p_mm <- sum(((2*n_tips-2)-bcounts) > 0)/length(bcounts)
+
+    out <- c(b_ci, p_mm, run_idx, phi_idx, clock)
+    names(out) <- c("q5", "median", "q95", "p_mm", "run_idx", "phi_idx", "clock")
+    return(out)
+}
+df_bci <- data.frame(do.call(rbind, lapply(1L:mut_sets,
+    function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+        function(j) lapply(1L:set_size,
+            function(k) h(i,j,k))))))))
+
+p2 <- ggplot(df_bci, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
+    geom_errorbar(width=.1, alpha=0.4) +
+    geom_point(size=.5, alpha=0.8) + 
+    geom_hline(yintercept=0, color="red") +
+    facet_grid(rows = vars(phi_idx), cols=vars(clock), labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
+    theme_minimal()+
+    labs(x="Run") +
+    coord_cartesian(clip = 'off') +
+    theme(
+        axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+
+
+p3 <- ggplot(df_bci, aes(x=run_idx, y=p_mm)) +
+    geom_point(size=.5, alpha=0.8) + 
+    geom_hline(yintercept=.99, color="red") +    
+    geom_hline(yintercept=.95, color="red") +
+    geom_hline(yintercept=.75, color="red") +
+    geom_hline(yintercept=.5, color="red") +
+    facet_grid(rows = vars(phi_idx), cols=vars(clock), labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
+    scale_y_continuous(trans='log2', breaks = c(1.0,.95,.9,.75,.5)) + 
+    theme_minimal()+
+    labs(x="Run") +
+    theme(
+        axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+```
+Plot relative branch counts
+```{r,out.width="100%"}
+pdf("../manuscript_figs/kmb_bcount.pdf",8,8)
+plot(p2)
+dev.off()
+p2
+```
+Plot Posterior Probabilities of the Tree Containing Multiple Mergers
+```{r,out.width="100%"}
+pdf("../manuscript_figs/kmb_pmm.pdf",8,8)
+plot(p3)
+dev.off()
+p3
+```
+```{r}
+count_subs <- function(clock, phi_idx, run_idx)
+{
+    idx <- (phi_idx-1L) * set_size + run_idx
+    tr<-read.tree(paste0("./mut",clock,"/tree_clock_", idx, ".nwk"))
+    exp_subs <- node.depth.edgelength(tr)[1:n_tips]
+    out <- c(mean(exp_subs), run_idx, clock)
+    names(out) <- c("exp_subs", "run_idx", "clock")
+    return(out)
+}
+
+subs_df <- data.frame(do.call(rbind, lapply(1L:mut_sets,
+    function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+        function(j) lapply(1L:set_size,
+            function(k) count_subs(i,j,k))))))))
+
+p4 <- ggplot(subs_df, aes(factor(clock), exp_subs/1e4L)) + 
+    geom_violin() +
+    theme_minimal() +
+    labs(y="Expected Substitutions Per Site", x="Clock") + 
+    theme(
+        axis.text.x=element_text(size=rel(1.0), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+```
+
+Plot Expected Number of Substitutions for Each Clock
+```{r,out.width="100%"}
+pdf("../manuscript_figs/kmb_exp_subs.pdf",8,8)
+plot(p4)
+dev.off()
+p4
+```
