@@ -45,9 +45,9 @@ ggtree(tree) + theme_tree2() + scale_x_ggtree()
 
 Run MMCTime under Modified Beta, as well as under Kingman for comparison
 ```{r, eval=run_mcmc}
-res_kmb <- mmctime(tree, dates, n_draws=1e3L, thin=2e3L, n_chain=4, model="km_beta", verbose=F, fix_root=T)
+res_kmb <- mmctime(tree, dates, n_draws=1e3L, thin=3e3L, n_chain=4, model="km_beta", verbose=F, fix_root=T)
 saveRDS(res_kmb, "res_kmb.rds")
-res_km <- mmctime(tree, dates, n_draws=1e3L, thin=2e3L, n_chain=4, model="kingman", verbose=F, fix_root=T)
+res_km <- mmctime(tree, dates, n_draws=1e3L, thin=3e3L, n_chain=4, model="kingman", verbose=F, fix_root=T)
 saveRDS(res_km, "res_km.rds")
 ```
 Or load a saved run
