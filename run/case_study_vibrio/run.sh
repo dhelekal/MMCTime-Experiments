@@ -5,7 +5,7 @@ sbatch <<EOT
 #SBATCH --ntasks-per-node=4
 #SBATCH --cpus-per-task=1
 #SBATCH --mem-per-cpu=4000
-#SBATCH --time=4:00:00
+#SBATCH --time=12:00:00
 #SBATCH --export=ALL
 
 module purge
