@@ -19,6 +19,7 @@ library(dplyr)
 library(posterior)
 library(reshape2)
 library(patchwork)
+library(scales)
 
 set.seed(2)
 run_mcmc <- F
@@ -131,97 +132,108 @@ res_kmb <- readRDS("res_kmb.rds")
 ```
 
 ```{r}
-side_by_side <- function(phy_gt, res)
+side_by_side <- function(sim, res)
 {
+    phy_gt <- sim$phy_gt
+    mrsd <- max(sim$dates)
     n <- length(phy_gt$tip.label)
     m <- nrow(phy_gt$edge) - n + 1
     phy_gt <- di2multi(phy_gt)
     msize_node <- unname(c(rep(1,n),table(phy_gt$edge[,1])))
-    msize_outgoing <- rep(NA, n+m)
+    msize_outgoing <- rep(F, n+m)
+
     for (i in 1:nrow(phy_gt$edge))
     {
         msize_outgoing[phy_gt$edge[i,2]] <- msize_node[phy_gt$edge[i,1]]
     }
 
-    max_mm <- max(msize_outgoing)
+    phy_gt.f <- fortify(as.phylo(phy_gt), layout="slanted")
 
-    phy_gt.tbl <- phy_gt %>% as_tibble %>% mutate(
+    max_x_gt <- max(phy_gt.f$x,na.rm=TRUE)
+    phy_gt.f$x <- phy_gt.f$x - max_x_gt
+
+    tip_ord_gt <- phy_gt.f %>%
+                dplyr::filter(.data$isTip) %>%
+                dplyr::arrange(.data$y) %>%
+                dplyr::pull("label")
+
+    phy_gt.tbl <- phy_gt.f %>% as_tibble %>% mutate(
         msize = msize_outgoing
-    ) %>% 
-    as.treedata
+    )
 
-    plt_ci <- plot_treeCI(res, mrsd = "01-01-2020") + ggtitle("Estimated Credible Tree") 
-    d <- ggplot_build(plt_ci)
-    
-    a <- d$plot$scales$get_scales("colour")$range$range[[2]]
-    a <- max(max(msize_outgoing, na.rm=T),a)
+    plt_ci <- plot_densiCI(res,mrsd=mrsd, layout="slanted", n_samp=250, tip.order=tip_ord_gt) + ggtitle("Densitree With CIs For Majority Clades") 
 
-    plt_ci <- plt_ci + scale_colour_viridis_b(breaks=2:max(a, na.rm=T)) + #(plt_ci$theme %+replace% theme(legend.position="none")) + 
-        labs(color="Merger Size")
-
-    plt_gt <- ggtree(phy_gt.tbl, mrsd = "01-01-2020", aes(color = msize)) + 
-        scale_colour_viridis_b(breaks=2:max(a, na.rm=T)) +
+    plt_gt <- ggtree(tr=phy_gt.tbl, layout="slanted", aes(color = msize>2)) + 
+        scale_color_manual(values=c("red","blue")) +
+        geom_tippoint(color="black", size=0.5) +
         ggtitle("Simulated Tree") +
-        scale_x_ggtree() +
         theme_tree2() +
-        theme(legend.position="none")
+        theme(legend.position="none") +
+        geom_tiplab(size=1,color="black") +
+        scale_x_continuous(labels = label_math(expr=.x, format=function(x) mrsd + x))
+
 
     plt_gt | plt_ci
 }
 ```
-```{r, eval=T}
-p <- side_by_side(sim_beta$phy_gt, res_beta)
+Beta side-by-side
+```{r, eval=T, out.width="100%"}
+p <- side_by_side(sim_beta, res_beta)
 pdf("../manuscript_figs/beta_res.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-
-```{r, eval=T}
-p <- side_by_side(sim_kmb$phy_gt, res_kmb)
+Modified Beta side-by-side
+```{r, eval=T, out.width="100%"}
+p <- side_by_side(sim_kmb, res_kmb)
 pdf("../manuscript_figs/kmb_res.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-```{r,eval=T}
-p<-ggtree(sample_timetree(res_beta,9)) + theme_tree2() + facet_wrap(~.id, ncol=3)
+Beta posterior draws
+```{r,eval=T,out.width="100%"}
+p <- plot_mm_tree(sample_timetree(res_beta,9))
 pdf("../manuscript_figs/beta_ps.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-
-```{r,eval=T}
-p<-ggtree(sample_timetree(res_kmb,9)) + theme_tree2() + facet_wrap(~.id, ncol=3)
+Modified beta posterior draws
+```{r,eval=T,out.width="100%"}
+p <- plot_mm_tree(sample_timetree(res_kmb,9))
 pdf("../manuscript_figs/kmb_ps.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-```{r}
+Beta traces
+```{r,out.width="100%"}
 p<-plot_traces(res_beta)
 pdf("../manuscript_figs/beta_traces.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-```{r}
+Modified beta traces
+```{r,out.width="100%"}
 p<-plot_traces(res_kmb)
 pdf("../manuscript_figs/kmb_traces.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-```{r}
+Beta pairs
+```{r,out.width="100%"}
 p<-plot_pars(res_beta)
 pdf("../manuscript_figs/beta_pars.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-
-```{r}
+Modified beta pairs
+```{r,out.width="100%"}
 p<-plot_pars(res_kmb)
 pdf("../manuscript_figs/kmb_pars.pdf", 8, 8)
 p
