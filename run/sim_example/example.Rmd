@@ -87,16 +87,16 @@ sim_kmb <- readRDS("sim_kmb.rds")
 
 Beta Trees
 ```{r}
-p <- ggtree(sim_beta$phy_ml) + theme_tree2() + geom_tiplab(size=1.0)+  scale_x_ggtree()
-pdf("../manuscript_figs/kmb_input.pdf", 8, 8)
+p <- ggtree(sim_beta$phy_ml) + theme_tree2() + geom_tiplab(size=1.0)
+pdf("../manuscript_figs/beta_ex_input.pdf", 8, 8)
 p
 dev.off()
 p
 ```
 Modified Beta Trees
 ```{r}
-p <- ggtree(sim_kmb$phy_ml) + theme_tree2() + geom_tiplab(size=1.0)+  scale_x_ggtree()
-pdf("../manuscript_figs/kmb_input.pdf", 8, 8)
+p <- ggtree(sim_kmb$phy_ml) + theme_tree2() + geom_tiplab(size=1.0)
+pdf("../manuscript_figs/kmb_ex_input.pdf", 8, 8)
 p
 dev.off()
 p
@@ -130,7 +130,10 @@ saveRDS(res_kmb, "res_kmb.rds")
 res_beta <- readRDS("res_beta.rds")
 res_kmb <- readRDS("res_kmb.rds")
 ```
-
+```{r}
+print(res_beta$summaries, n=20)
+print(res_kmb$summaries, n=20)
+```
 ```{r}
 side_by_side <- function(sim, res)
 {
@@ -147,7 +150,7 @@ side_by_side <- function(sim, res)
         msize_outgoing[phy_gt$edge[i,2]] <- msize_node[phy_gt$edge[i,1]]
     }
 
-    phy_gt.f <- fortify(as.phylo(phy_gt), layout="slanted")
+    phy_gt.f <- fortify(as.phylo(phy_gt), layout="rectangular")
 
     max_x_gt <- max(phy_gt.f$x,na.rm=TRUE)
     phy_gt.f$x <- phy_gt.f$x - max_x_gt
@@ -161,15 +164,18 @@ side_by_side <- function(sim, res)
         msize = msize_outgoing
     )
 
-    plt_ci <- plot_densiCI(res,mrsd=mrsd, layout="slanted", n_samp=250, tip.order=tip_ord_gt) + ggtitle("Densitree With CIs For Majority Clades") 
+    plt_ci <- plot_densiCI(res,mrsd=mrsd, layout="rectangular", n_samp=100, tip.order=tip_ord_gt) + ggtitle("Densitree With CIs For Majority Clades") 
 
-    plt_gt <- ggtree(tr=phy_gt.tbl, layout="slanted", aes(color = msize>2)) + 
+    plt_gt <- ggtree(tr=phy_gt.tbl, layout="rectangular", aes(color = msize>2)) + 
         scale_color_manual(values=c("red","blue")) +
-        geom_tippoint(color="black", size=0.5) +
+        geom_tippoint(color="black", size=0.25) +
         ggtitle("Simulated Tree") +
         theme_tree2() +
-        theme(legend.position="none") +
-        geom_tiplab(size=1,color="black") +
+        theme(legend.position="none",
+            axis.text.x=element_text(angle = 45, hjust=1, size=4),
+            panel.grid.major = element_blank(), 
+            axis.line = element_line(size=rel(0.2), colour = "grey80"),
+            plot.title = element_text(hjust = 0.5,size=6.0)) +
         scale_x_continuous(labels = label_math(expr=.x, format=function(x) mrsd + x))
 
 
@@ -179,23 +185,19 @@ side_by_side <- function(sim, res)
 Beta side-by-side
 ```{r, eval=T, out.width="100%"}
 p <- side_by_side(sim_beta, res_beta)
-pdf("../manuscript_figs/beta_res.pdf", 8, 8)
-p
-dev.off()
+ggsave("../manuscript_figs/beta_ex_densi.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
 p
 ```
 Modified Beta side-by-side
 ```{r, eval=T, out.width="100%"}
 p <- side_by_side(sim_kmb, res_kmb)
-pdf("../manuscript_figs/kmb_res.pdf", 8, 8)
-p
-dev.off()
+ggsave("../manuscript_figs/kmb_ex_densi.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
 p
 ```
 Beta posterior draws
 ```{r,eval=T,out.width="100%"}
 p <- plot_mm_tree(sample_timetree(res_beta,9))
-pdf("../manuscript_figs/beta_ps.pdf", 8, 8)
+pdf("../manuscript_figs/beta_ex_ps.pdf", 8, 8)
 p
 dev.off()
 p
@@ -203,7 +205,7 @@ p
 Modified beta posterior draws
 ```{r,eval=T,out.width="100%"}
 p <- plot_mm_tree(sample_timetree(res_kmb,9))
-pdf("../manuscript_figs/kmb_ps.pdf", 8, 8)
+pdf("../manuscript_figs/kmb_ex_ps.pdf", 8, 8)
 p
 dev.off()
 p
@@ -211,7 +213,7 @@ p
 Beta traces
 ```{r,out.width="100%"}
 p<-plot_traces(res_beta)
-pdf("../manuscript_figs/beta_traces.pdf", 8, 8)
+pdf("../manuscript_figs/beta_ex_traces.pdf", 8, 8)
 p
 dev.off()
 p
@@ -219,7 +221,7 @@ p
 Modified beta traces
 ```{r,out.width="100%"}
 p<-plot_traces(res_kmb)
-pdf("../manuscript_figs/kmb_traces.pdf", 8, 8)
+pdf("../manuscript_figs/kmb_ex_traces.pdf", 8, 8)
 p
 dev.off()
 p
@@ -227,7 +229,7 @@ p
 Beta pairs
 ```{r,out.width="100%"}
 p<-plot_pars(res_beta)
-pdf("../manuscript_figs/beta_pars.pdf", 8, 8)
+pdf("../manuscript_figs/beta_ex_pars.pdf", 8, 8)
 p
 dev.off()
 p
@@ -235,7 +237,7 @@ p
 Modified beta pairs
 ```{r,out.width="100%"}
 p<-plot_pars(res_kmb)
-pdf("../manuscript_figs/kmb_pars.pdf", 8, 8)
+pdf("../manuscript_figs/kmb_ex_pars.pdf", 8, 8)
 p
 dev.off()
 p

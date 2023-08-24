@@ -67,9 +67,22 @@ dfs <- do.call(rbind, lapply(1L:mut_sets,
 Plot Stuff
 ```{r}
 vnames <- c("phi", "alpha", "nu","sigma","mu", height_n)
+
 subset_v <- function (df, v) df[df$variable==v,]
+
 relab <- function (df) df %>%
   mutate(phi_idx = recode(phi_idx, "1" = "0.0", "2" = "0.5", "3" = "0.75", "4"="1.0"))
+
+conv_df <- do.call(rbind, lapply(1L:mut_sets,
+    function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
+        function(j) lapply(1L:set_size,
+            function(k) data.frame(clock=i,phi_idx=j, run_idx=k)))))))
+conv_df$conv <- apply(conv_df, 1, function(x)  all((dfs[which((dfs$clock == x[1]) & (dfs$phi_idx == x[2]) &  (dfs$run_idx == x[3])),]$ess_bulk>200)) && 
+        all(dfs[which((dfs$clock == x[1]) & (dfs$phi_idx == x[2]) &  (dfs$run_idx == x[3])),]$rhat < 1.05))
+conv_df <- conv_df[!conv_df$conv, ]
+conv_df <- relab(conv_df)
+
+
 sum_plt <- function(df, vname)
 {
     allDf <- df[df$variable %in% vnames,]
@@ -91,24 +104,11 @@ sum_plt <- function(df, vname)
     gt_df$variable <- factor(gt_df$variable, levels=vnames)
     allDf$variable <- factor(allDf$variable, levels=vnames)
 
-    conv_df <- do.call(rbind, lapply(1L:mut_sets,
-        function(i) do.call(rbind, do.call(c, lapply(1L:phi_sets,
-            function(j) lapply(1L:set_size,
-                function(k) data.frame(clock=i,phi_idx=j, run_idx=k)))))))
-
-
-    conv_df$conv <- apply(conv_df, 1, function(x)  all((df[which((df$clock == x[1]) & (df$phi_idx == x[2]) &  (df$run_idx == x[3])),]$ess_bulk>200)) && 
-        all(df[which((df$clock == x[1]) & (df$phi_idx == x[2]) &  (df$run_idx == x[3])),]$rhat < 1.05))
-    conv_df$variable <- vname
-    conv_df <- conv_df[!conv_df$conv, ]
-    conv_df$variable <- factor(conv_df$variable, levels=vnames)
-
     gt_df <- subset_v(gt_df, vname)
     allDf <- subset_v(allDf, vname)
 
     allDf <- relab(allDf)
     gt_df <- relab(gt_df)
-    conv_df <- relab(conv_df)
 
     ggplot(allDf, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
     geom_errorbar(width=.1, , alpha=0.4) +
@@ -166,7 +166,7 @@ p
 ```
 ```{r}
 p <- sum_plt(dfs, height_n)
-pdf(paste0("../manuscript_figs/kmb_height", height_n, ".pdf"),8,8)
+pdf(paste0("../manuscript_figs/kmb_", height_n, ".pdf"),8,8)
 plot(p)
 dev.off()
 p
@@ -198,16 +198,21 @@ df_bci <- data.frame(do.call(rbind, lapply(1L:mut_sets,
         function(j) lapply(1L:set_size,
             function(k) h(i,j,k))))))))
 
-p2 <- ggplot(df_bci, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
+df_bci <- relab(df_bci)
+
+p2 <- ggplot(relab(df_bci), aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
     geom_errorbar(width=.1, alpha=0.4) +
     geom_point(size=.5, alpha=0.8) + 
     geom_hline(yintercept=0, color="red") +
+    geom_point(data=conv_df, aes(x=run_idx, y=-Inf), color="red", size=2.0, shape=4, inherit.aes=F) +
     facet_grid(rows = vars(phi_idx), cols=vars(clock), labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
+    geom_point(data=conv_df, aes(x=run_idx, y=-Inf), color="red", size=2.0, shape=4, inherit.aes=F) +
     theme_minimal()+
     labs(x="Run") +
     coord_cartesian(clip = 'off') +
     theme(
         axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        axis.text.y=element_text(size=rel(0.9)),
         plot.margin = margin(0, 0, 0, 0, "cm"),
         panel.grid.major = element_blank(), 
         axis.line = element_line(size=rel(0.2), colour = "grey80"),
@@ -218,14 +223,18 @@ p3 <- ggplot(df_bci, aes(x=run_idx, y=p_mm)) +
     geom_point(size=.5, alpha=0.8) + 
     geom_hline(yintercept=.99, color="red") +    
     geom_hline(yintercept=.95, color="red") +
+    geom_hline(yintercept=.90, color="red") +
     geom_hline(yintercept=.75, color="red") +
     geom_hline(yintercept=.5, color="red") +
+    geom_point(data=conv_df, aes(x=run_idx, y=0), color="red", size=2.0, shape=4, inherit.aes=F) +
     facet_grid(rows = vars(phi_idx), cols=vars(clock), labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
-    scale_y_continuous(trans='log2', breaks = c(1.0,.95,.9,.75,.5)) + 
+    scale_y_continuous(trans='log2', breaks = c(.99,.95,.90,.75,.5)) + 
+    coord_cartesian(clip = 'off') +
     theme_minimal()+
     labs(x="Run") +
     theme(
         axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        axis.text.y=element_text(size=rel(0.9)),
         plot.margin = margin(0, 0, 0, 0, "cm"),
         panel.grid.major = element_blank(), 
         axis.line = element_line(size=rel(0.2), colour = "grey80"),

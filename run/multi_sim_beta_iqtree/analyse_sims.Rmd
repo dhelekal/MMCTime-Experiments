@@ -68,7 +68,6 @@ sum_plt <- function(df)
         all(df[which((df$run_idx == x[1]) & (df$clock == x[2])),]$rhat < 1.05))
     conv_df$variable <- height_n
     conv_df <- conv_df[!conv_df$conv, ]
-    print(conv_df) 
 
     allDf <- df[df$variable %in% c("mu", "nu", "sigma", "alpha", height_n),]
     gt_df <- data.frame(clock = c(rep(1, set_size), rep(2, set_size), rep(3, set_size)),
@@ -135,13 +134,20 @@ df_bci <- data.frame(do.call(rbind,lapply(1L:mut_sets,
     function(i) do.call(rbind, lapply(1L:set_size,
             function(j) h(i,j))))))
 
+conv_df <- data.frame(run_idx = rep(1L:set_size, mut_sets), clock= do.call(c,lapply(1L:mut_sets, function (x) rep(x, set_size))))
+conv_df$conv <- apply(conv_df, 1, function(x)  all((dfs[which((dfs$run_idx == x[1]) & (dfs$clock == x[2])),]$ess_bulk>200)) && 
+    all(dfs[which((dfs$run_idx == x[1]) & (dfs$clock == x[2])),]$rhat < 1.05))
+conv_df <- conv_df[!conv_df$conv, ]
+
 p2<-ggplot(df_bci, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
     geom_errorbar(width=.1, alpha=0.4) +
     geom_point(size=.5, alpha=0.8) + 
     geom_hline(yintercept=0, color="red") +
+    geom_point(data=conv_df, aes(x=run_idx, y=-Inf), color="red", size=2.0, shape=4, inherit.aes=F) +
     facet_grid(cols=vars(clock), scales="free_y", labeller = label_bquote(cols="Clock"==.(clock))) +
     theme_minimal()+
     labs(x="Run") +
+    coord_cartesian(clip = 'off') +
     theme(
         axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
         plot.margin = margin(0, 0, 0, 0, "cm"),
@@ -153,12 +159,15 @@ p3<-ggplot(df_bci, aes(x=run_idx, y=p_mm)) +
     geom_point(size=.5, alpha=0.8) + 
     geom_hline(yintercept=.99, color="red") +    
     geom_hline(yintercept=.95, color="red") +
+    geom_hline(yintercept=.90, color="red") +
     geom_hline(yintercept=.75, color="red") +
     geom_hline(yintercept=.5, color="red") +
+    geom_point(data=conv_df, aes(x=run_idx, y=0), color="red", size=2.0, shape=4, inherit.aes=F) +
     facet_grid(cols=vars(clock), scales="free_y", labeller = label_bquote(cols="Clock"==.(clock))) +
-    scale_y_continuous(trans='log2', breaks = c(1.0,.95,.9,.75,.5)) + 
+    scale_y_continuous(trans='log2', breaks = c(0.99,.95,.9,.75,.5)) + 
     theme_minimal()+
     labs(x="Run") +
+    coord_cartesian(clip = 'off') +
     theme(
         axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
         plot.margin = margin(0, 0, 0, 0, "cm"),

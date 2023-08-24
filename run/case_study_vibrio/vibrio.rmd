@@ -12,10 +12,12 @@ Load Packages
 ```{r}
 library(MMCTime)
 library(ggplot2)
+library(treeio)
 library(ape)
 library(ggtree)
 library(posterior)
 library(reshape2)
+library(dplyr)
 library(patchwork)
 
 set.seed(12343)
@@ -41,10 +43,14 @@ dates <- dates[tree$tip.label]
 ```
 Plot the mutation scaled phylogeny
 ```{r, out.width="100%"}
-ggtree(tree) + theme_tree2()
+p <- ggtree(tree) + theme_tree2()
+pdf("../manuscript_figs/vibrio_input.pdf")
+p
+dev.off()
+p
 ```
 
-Run MMCTime under Modified Beta, as well as under Kingman for comparison
+Run MMCTime under Extended Beta, as well as under Kingman for comparison
 ```{r, eval=run_mcmc}
 res_kmb <- mmctime(tree, dates, n_draws=1e3L, thin=3e3L, n_chain=4, model="km_beta", verbose=F, fix_root=T)
 saveRDS(res_kmb, "res_kmb.rds")
@@ -57,53 +63,43 @@ res_kmb <- readRDS("res_kmb.rds")
 res_km <- readRDS("res_km.rds")
 ```
 
-Inspect the posterior summaries for modified beta
+Inspect the posterior summaries for Extended beta
 ```{r}
 print(res_kmb$summaries, n=20)
 ```
-Inspect the posterior summaries for beta
+Inspect the posterior summaries for kingman
 ```{r}
-print(res_kmb$summaries, n=20)
+print(res_km$summaries, n=20)
 ```
-Plot a summary tree
-```{r, out.width="100%",eval=F}
-p <- plot_densiCI(res_kmb, n_samp=250, mrsd=max(dates))
-pdf("../manuscript_figs/vibrio_densi_mm.pdf",8,8)
-p
-dev.off()
+Plot a summary tree for Extended beta
+```{r, out.width="100%",eval=T}
+p <- plot_densiCI(res_kmb, n_samp=100, mrsd=max(dates),layout="rectangular")
+ggsave("../manuscript_figs/vibrio_densi_mm.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
 p
 ```
-
-```{r, out.width="100%",eval=F}
-p <- plot_densiCI(res_km, n_samp=250, mrsd=max(dates))
-pdf("../manuscript_figs/vibrio_densi_km.pdf",8,8)
-p
-dev.off()
+Plot a summary tree for kingman
+```{r, out.width="100%",eval=T}
+p <- plot_densiCI(res_km, n_samp=100, mrsd=max(dates),layout="rectangular")
+ggsave("../manuscript_figs/vibrio_densi_km.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
 p
 ```
+Extended beta posterior draws for kingman
 ```{r,eval=T,out.width="100%"}
-p <- plot_mm_tree(sample_timetree(res_kmb,9))
+p <- plot_mm_tree(sample_timetree(res_km,9))
 pdf("../manuscript_figs/vibrio_mm_ps.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-Modified beta posterior draws
+Extended beta posterior draws for modfiied beta
 ```{r,eval=T,out.width="100%"}
-p <- plot_mm_tree(sample_timetree(res_km,9))
+p <- plot_mm_tree(sample_timetree(res_kmb,9))
 pdf("../manuscript_figs/vibrio_km_ps.pdf", 8, 8)
 p
 dev.off()
 p
 ```
-```{r,eval=T,out.width="100%"}
-p <- plot_mm_tree(sample_timetree(res_beta,9))
-pdf("../manuscript_figs/beta_ps.pdf", 8, 8)
-p
-dev.off()
-p
-```
-
+plot parameter marginals for Extended beta
 ```{r, out.width="100%"}
 p <- plot_pars(res_kmb)
 pdf("../manuscript_figs/vibrio_pars_mm.pdf",8,8)
@@ -111,7 +107,7 @@ p
 dev.off()
 p
 ```
-Inspect traces
+Inspect traces for Extended beta
 ```{r, out.width="100%"}
 p <- plot_traces(res_kmb)
 pdf("../manuscript_figs/vibrio_trace_mm.pdf",8,8)
@@ -119,12 +115,12 @@ p
 dev.off()
 p
 ```
+Plot boxplots comparing parameters
 ```{r, out.width="100%"}
 thm1 <-function() theme(axis.title.x=element_blank(),
     axis.title.y=element_blank(),
-    axis.text.y=element_blank(),
-    axis.ticks.y=element_blank(), 
-    axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+    axis.text.y=element_text(size=rel(1.0), angle = 45, hjust=1),
+    axis.text.x=element_text(size=rel(1.0), angle = 45, hjust=1),
     aspect.ratio=1,
     plot.margin = margin(0, 0, 0, 0, "cm"),
     panel.grid.major = element_blank(), 
@@ -132,17 +128,24 @@ thm1 <-function() theme(axis.title.x=element_blank(),
     axis.line = element_line(size=rel(0.2), colour = "grey80"),
     plot.title = element_text(hjust = 0.5,size=rel(1.0)))
 
-tmp1 <- cbind(res_kmb$draws[,c("mu", "sigma")],1)
-colnames(tmp1) <- c("mu", "sigma", "prior")
-tmp2 <- cbind(res_km$draws[,c("mu", "sigma")],2)
-colnames(tmp2) <- c("mu", "sigma", "prior")
+tmp1 <- cbind(res_kmb$draws[,c("mu", "sigma", "t_412")],"Extended Beta")
+colnames(tmp1) <- c("mu", "sigma", "height", "prior")
+tmp2 <- cbind(res_km$draws[,c("mu", "sigma", "t_412")],"Kingman")
+colnames(tmp2) <- c("mu", "sigma", "height", "prior")
 
 mut_draws <- rbind(tmp1,tmp2)
 mut_draws$prior <- factor(mut_draws$prior)
 
-p <- ggplot(melt(mut_draws), aes(x=value,y=variable, fill=prior)) + 
-    geom_boxplot() + 
+qDf<-melt(mut_draws) %>% group_by(prior, variable) %>%
+    summarize(lower=quantile(value,probs=0.025),
+    med=quantile(value,probs=0.5),
+    upper=quantile(value,probs=0.975))
+
+p <- ggplot(qDf, aes(x=prior,ymin=lower, y=med, ymax=upper, color=prior)) + 
+    geom_linerange(lwd=0.5) +
+    geom_point(size=1.5) +
     theme_minimal() + 
+    facet_grid(cols=vars(variable))+
     thm1()
 
 pdf("../manuscript_figs/vibrio_mut.pdf",8,8)
