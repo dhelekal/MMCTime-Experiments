@@ -32,7 +32,7 @@ nu <- 1/10
 alphas <- seq(from=0.01, to=.75, length.out=set_size)
 phis <- c(0.0, 0.5, 0.75, 1.0)
 mus <- c(1.5, 3.0, 6.0)
-sigmas <- c(0.5, 1.0, 2.0)
+omegas <- c(0.5, 1.0, 2.0)
 root_n <- "t_201"
 height_n <- "rel_height"
 
@@ -66,7 +66,7 @@ dfs <- do.call(rbind, lapply(1L:mut_sets,
 
 Plot Stuff
 ```{r}
-vnames <- c("phi", "alpha", "nu","sigma","mu", height_n)
+vnames <- c("phi", "alpha", "nu","omega","mu", height_n)
 
 subset_v <- function (df, v) df[df$variable==v,]
 
@@ -95,7 +95,7 @@ sum_plt <- function(df, vname)
     gt_df$alpha <- apply(gt_df, 1, function(x) alphas[x[3]])
 
     gt_df$mu <- apply(gt_df, 1, function(x) mus[x[1]])
-    gt_df$sigma <- apply(gt_df, 1, function(x) sigmas[x[1]])
+    gt_df$omega <- apply(gt_df, 1, function(x) omegas[x[1]])
 
     gt_df$nu <- nu
     gt_df$rel_height <- 0.0
@@ -158,8 +158,8 @@ dev.off()
 p
 ```
 ```{r}
-p <- sum_plt(dfs, "sigma")
-pdf("../manuscript_figs/kmb_sigma.pdf",8,8)
+p <- sum_plt(dfs, "omega")
+pdf("../manuscript_figs/kmb_omega.pdf",8,8)
 plot(p)
 dev.off()
 p

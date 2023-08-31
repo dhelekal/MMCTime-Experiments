@@ -69,20 +69,20 @@ sum_plt <- function(df)
     conv_df$variable <- height_n
     conv_df <- conv_df[!conv_df$conv, ]
 
-    allDf <- df[df$variable %in% c("mu", "nu", "sigma", "alpha", height_n),]
+    allDf <- df[df$variable %in% c("mu", "nu", "omega", "alpha", height_n),]
     gt_df <- data.frame(clock = c(rep(1, set_size), rep(2, set_size), rep(3, set_size)),
         run_idx = rep(1:set_size,mut_sets),
         alpha=rep(alphas,mut_sets),
         nu=rep(1/10, mut_sets*set_size),
         mu=c(rep(1.5, set_size),rep(3, set_size),rep(6, set_size)),
-        sigma=c(rep(.5, set_size),rep(1, set_size),rep(2, set_size)),
+        omega=c(rep(.5, set_size),rep(1, set_size),rep(2, set_size)),
         rel_height=rep(0.0, mut_sets*set_size)
         )
-    gt_df <- melt(gt_df, measure.vars=c("alpha", "nu","sigma","mu", height_n))
+    gt_df <- melt(gt_df, measure.vars=c("alpha", "nu","omega","mu", height_n))
     
-    gt_df$variable <- factor(gt_df$variable, levels=c("alpha", "nu","sigma","mu", height_n))
-    allDf$variable <- factor(allDf$variable, levels=c("alpha", "nu","sigma","mu", height_n))
-    conv_df$variable <-  factor(conv_df$variable, levels=c("alpha", "nu","sigma","mu", height_n))
+    gt_df$variable <- factor(gt_df$variable, levels=c("alpha", "nu","omega","mu", height_n))
+    allDf$variable <- factor(allDf$variable, levels=c("alpha", "nu","omega","mu", height_n))
+    conv_df$variable <-  factor(conv_df$variable, levels=c("alpha", "nu","omega","mu", height_n))
 
     ggplot(allDf, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
     geom_errorbar(width=.1, alpha=0.4) +

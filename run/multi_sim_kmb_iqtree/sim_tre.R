@@ -9,15 +9,15 @@ if (length(args)!=3) {
 nsites <- 10000L
 
 mu <- as.numeric(args[1])
-sigma <- as.numeric(args[2]) 
+omega <- as.numeric(args[2]) 
 index <- as.integer(args[3]) 
-seed <- index + trunc(sigma * 13000 + mu*120000)
+seed <- index + trunc(omega * 13000 + mu*120000)
 
 set.seed(seed)
 
 tre <- multi2di(read.tree(paste0("../gt/tree_", index,".nwk")))
 
-tre$edge.length <- sapply(tre$edge.length, function (x) if(abs(x) < 1e-8) 0 else rgamma(1,shape = x * mu / sigma, scale = sigma))
+tre$edge.length <- sapply(tre$edge.length, function (x) if(abs(x) < 1e-8) 0 else rgamma(1,shape = x * mu / omega, scale = omega))
 tre$node.label <- NULL
 
 write.tree(tre, paste0("tree_clock_", index,".nwk"))

@@ -66,17 +66,17 @@ names(res_kingman) <- name_vec
 Build DataFrames
 ```{r}
 foo <- function(x,vnames) do.call(rbind,lapply(names(x), function(s) cbind(x[[s]]$draws[,vnames],dataset=s)))
-df_beta <- foo(res_beta,c("alpha","nu","mu","sigma"))
-df_kmb <- foo(res_kmb,c("phi","alpha","nu","mu","sigma"))
-df_kingman <- foo(res_kingman,c("nu","mu","sigma"))
+df_beta <- foo(res_beta,c("alpha","nu","mu","omega"))
+df_kmb <- foo(res_kmb,c("phi","alpha","nu","mu","omega"))
+df_kingman <- foo(res_kingman,c("nu","mu","omega"))
 ```
 
 Plot clock parameters
 ```{r,out.width="100%"}
-mut_df <- rbind(cbind(df_beta[,c("mu", "sigma", "dataset")], model="Beta"),
-    cbind(df_kmb[,c("mu", "sigma", "dataset")], model="Extended beta"),
-    cbind(df_kingman[,c("mu", "sigma", "dataset")], model="Kingman"))
-mDf <- melt(mut_df, measure.vars=c("mu","sigma"))
+mut_df <- rbind(cbind(df_beta[,c("mu", "omega", "dataset")], model="Beta"),
+    cbind(df_kmb[,c("mu", "omega", "dataset")], model="Extended beta"),
+    cbind(df_kingman[,c("mu", "omega", "dataset")], model="Kingman"))
+mDf <- melt(mut_df, measure.vars=c("mu","omega"))
 mDf$model <- factor(mDf$model, levels=c("Kingman","Beta", "Extended beta"))
 qDf<-mDf %>% group_by(model, dataset, variable) %>%
     summarize(lower=quantile(value,probs=0.025),

@@ -129,7 +129,7 @@ thm1 <-function() theme(axis.title.x=element_blank(),
     plot.title = element_text(hjust = 0.5,size=rel(1.0)))
 
 tmp1 <- cbind(res_kmb$draws[,c("mu", "sigma", "t_412")],"Extended Beta")
-colnames(tmp1) <- c("mu", "sigma", "height", "prior")
+colnames(tmp1) <- c("mu", "omega", "height", "prior")
 tmp2 <- cbind(res_km$draws[,c("mu", "sigma", "t_412")],"Kingman")
 colnames(tmp2) <- c("mu", "sigma", "height", "prior")
 

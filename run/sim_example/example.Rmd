@@ -30,7 +30,7 @@ sim_tre <- function(model, seed, ...)
 {
     n_tips <- 200
     mu <- 1.0
-    sigma <- 1.0
+    omega <- 1.0
     nsites <- 10000L
 
     samp_times <- 2020:2011
@@ -53,7 +53,7 @@ sim_tre <- function(model, seed, ...)
     }
 
     phy_clock <- multi2di(sim$phy)
-    phy_clock$edge.length <- sapply(phy_clock$edge.length, function (x) if(abs(x) < 1e-8) 0 else rgamma(1,shape = x * mu / sigma, scale = sigma))
+    phy_clock$edge.length <- sapply(phy_clock$edge.length, function (x) if(abs(x) < 1e-8) 0 else rgamma(1,shape = x * mu / omega, scale = omega))
     phy_clock$node.label <- NULL
     
     system(sprintf('mkdir tmp'))
