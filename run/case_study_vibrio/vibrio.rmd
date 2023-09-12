@@ -71,17 +71,16 @@ Inspect the posterior summaries for kingman
 ```{r}
 print(res_km$summaries, n=20)
 ```
-Plot a summary tree for Extended beta
+Plot a summary trees
 ```{r, out.width="100%",eval=T}
-p <- plot_densiCI(res_kmb, n_samp=100, mrsd=max(dates),layout="rectangular")
-ggsave("../manuscript_figs/vibrio_densi_mm.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
+p1 <- plot_densiCI(res_kmb, n_samp=100, mrsd=max(dates),layout="rectangular") + ggtitle("Extended Beta")
+p2 <- plot_densiCI(res_km, n_samp=100, mrsd=max(dates),layout="rectangular") + ggtitle("Kingman")
+p2 <- p2 + (p2$theme %+replace% theme(legend.position="none"))
+
+p <- (p1 | p2) + plot_layout(guides = "collect")
+ggsave("../manuscript_figs/vibrio_densi.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
 p
 ```
-Plot a summary tree for kingman
-```{r, out.width="100%",eval=T}
-p <- plot_densiCI(res_km, n_samp=100, mrsd=max(dates),layout="rectangular")
-ggsave("../manuscript_figs/vibrio_densi_km.png", plot=p, device = png, type="cairo", width=6, height=6, dpi=1000)
-p
 ```
 Extended beta posterior draws for kingman
 ```{r,eval=T,out.width="100%"}
@@ -128,10 +127,10 @@ thm1 <-function() theme(axis.title.x=element_blank(),
     axis.line = element_line(size=rel(0.2), colour = "grey80"),
     plot.title = element_text(hjust = 0.5,size=rel(1.0)))
 
-tmp1 <- cbind(res_kmb$draws[,c("mu", "sigma", "t_412")],"Extended Beta")
+tmp1 <- cbind(res_kmb$draws[,c("mu", "omega", "t_412")],"Extended Beta")
 colnames(tmp1) <- c("mu", "omega", "height", "prior")
-tmp2 <- cbind(res_km$draws[,c("mu", "sigma", "t_412")],"Kingman")
-colnames(tmp2) <- c("mu", "sigma", "height", "prior")
+tmp2 <- cbind(res_km$draws[,c("mu", "omega", "t_412")],"Kingman")
+colnames(tmp2) <- c("mu", "omega", "height", "prior")
 
 mut_draws <- rbind(tmp1,tmp2)
 mut_draws$prior <- factor(mut_draws$prior)

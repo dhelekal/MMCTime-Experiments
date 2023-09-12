@@ -7,11 +7,16 @@ if (length(args)!=1) {
 }
 
 res <- readRDS(args[1])
+if (class(res) == "timingRes")
+{
+  res$names_par_obs[res$names_par_obs=="sigma"]<-"omega"
 
-cn <- colnames(res$draws)
-cn[cn=="sigma"] <- "omega"
+  cn <- colnames(res$draws)
+  cn[cn=="sigma"] <- "omega"
 
-colnames(res$draws) <- cn
-within(res$summaries, variable[variable=="sigma"] <- "omega")
+  colnames(res$draws) <- cn
+  res$summaries <- within(res$summaries, variable[variable=="sigma"] <- "omega")
 
-saveRDS(res)
+  saveRDS(res,args[1])
+}
+
