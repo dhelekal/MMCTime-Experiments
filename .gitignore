@@ -51,3 +51,5 @@ rsconnect/
 *.rds
 *.Rds
 *slurm-*.out
+run/.DS_Store
+.DS_Store
