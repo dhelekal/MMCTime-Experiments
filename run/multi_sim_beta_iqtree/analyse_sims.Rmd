@@ -25,6 +25,7 @@ set_size <- 3L*48L
 
 root_n <- "t_201"
 height_n <- "rel_height"
+len_n <- "rel_length"
 n_tips <- 200
 
 alphas <-seq(from=.01, to=.99, length.out=set_size)
@@ -41,9 +42,21 @@ f <- function(clock, run_idx)
         return(max(y))
     }
 
+    g_len <- function(x)
+    {
+        y <- read.tree(paste0("./gt/tree_",x,".nwk"))$edge.length
+        return(sum(y))
+    }
+
+
+    gt_len <- g_len(run_idx)
     gt_h <- g(run_idx)
+
     tmp[tmp$variable == root_n, c("q5","median","q95")] <- (tmp[tmp$variable == root_n, c("q5","median","q95")]-gt_h)/gt_h
     tmp[tmp$variable == root_n,"variable"] = height_n
+
+    tmp[tmp$variable == "tree_length", c("q5","median","q95")] <- (tmp[tmp$variable == "tree_length", c("q5","median","q95")]-gt_len)/gt_len
+    tmp[tmp$variable == "tree_length", "variable"] = len_n
 
     return(tmp)
 }
@@ -68,21 +81,26 @@ sum_plt <- function(df)
         all(df[which((df$run_idx == x[1]) & (df$clock == x[2])),]$rhat < 1.05))
     conv_df$variable <- height_n
     conv_df <- conv_df[!conv_df$conv, ]
+    
+    vns <- c("alpha", "nu","omega","mu", len_n, height_n)
 
-    allDf <- df[df$variable %in% c("mu", "nu", "omega", "alpha", height_n),]
+    allDf <- df[df$variable %in% vns, ]
     gt_df <- data.frame(clock = c(rep(1, set_size), rep(2, set_size), rep(3, set_size)),
         run_idx = rep(1:set_size,mut_sets),
         alpha=rep(alphas,mut_sets),
         nu=rep(1/10, mut_sets*set_size),
         mu=c(rep(1.5, set_size),rep(3, set_size),rep(6, set_size)),
         omega=c(rep(.5, set_size),rep(1, set_size),rep(2, set_size)),
+        rel_length=rep(0.0, mut_sets*set_size),
         rel_height=rep(0.0, mut_sets*set_size)
         )
-    gt_df <- melt(gt_df, measure.vars=c("alpha", "nu","omega","mu", height_n))
+
+
+    gt_df <- melt(gt_df, measure.vars=vns)
     
-    gt_df$variable <- factor(gt_df$variable, levels=c("alpha", "nu","omega","mu", height_n))
-    allDf$variable <- factor(allDf$variable, levels=c("alpha", "nu","omega","mu", height_n))
-    conv_df$variable <-  factor(conv_df$variable, levels=c("alpha", "nu","omega","mu", height_n))
+    gt_df$variable <- factor(gt_df$variable, levels=vns)
+    allDf$variable <- factor(allDf$variable, levels=vns)
+    conv_df$variable <- factor(conv_df$variable, levels=vns)
 
     ggplot(allDf, aes(x=run_idx, ymin=q5, y=median, ymax=q95)) +
     geom_errorbar(width=.1, alpha=0.4) +

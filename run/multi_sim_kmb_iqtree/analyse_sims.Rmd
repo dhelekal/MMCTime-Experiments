@@ -35,6 +35,7 @@ mus <- c(1.5, 3.0, 6.0)
 omegas <- c(0.5, 1.0, 2.0)
 root_n <- "t_201"
 height_n <- "rel_height"
+len_n <- "rel_length"
 
 f <- function(clock, phi_idx, run_idx)
 {
@@ -51,9 +52,21 @@ f <- function(clock, phi_idx, run_idx)
         return(max(y))
     }
 
+    g_len <- function(x)
+    {
+        y <- read.tree(paste0("./gt/tree_",x,".nwk"))$edge.length
+        return(sum(y))
+    }
+
+
+    gt_len <- g_len(idx)
     gt_h <- g(idx)
+
     tmp[tmp$variable == root_n, c("q5","median","q95")] <- (tmp[tmp$variable == root_n, c("q5","median","q95")]-gt_h)/gt_h
     tmp[tmp$variable == root_n,"variable"] = height_n
+
+    tmp[tmp$variable == "tree_length", c("q5","median","q95")] <- (tmp[tmp$variable == "tree_length", c("q5","median","q95")]-gt_len)/gt_len
+    tmp[tmp$variable == "tree_length", "variable"] = len_n
 
     return(tmp)
 }
@@ -66,7 +79,7 @@ dfs <- do.call(rbind, lapply(1L:mut_sets,
 
 Plot Stuff
 ```{r}
-vnames <- c("phi", "alpha", "nu","omega","mu", height_n)
+vnames <- c("phi", "alpha", "nu","omega","mu", height_n, len_n)
 
 subset_v <- function (df, v) df[df$variable==v,]
 
@@ -99,6 +112,7 @@ sum_plt <- function(df, vname)
 
     gt_df$nu <- nu
     gt_df$rel_height <- 0.0
+    gt_df$rel_length <- 0.0
 
     gt_df <- melt(gt_df, measure.vars=vnames)
     gt_df$variable <- factor(gt_df$variable, levels=vnames)
@@ -167,6 +181,14 @@ p
 ```{r}
 p <- sum_plt(dfs, height_n)
 pdf(paste0("../manuscript_figs/kmb_", height_n, ".pdf"),8,8)
+plot(p)
+dev.off()
+p
+```
+
+```{r}
+p <- sum_plt(dfs, len_n)
+pdf(paste0("../manuscript_figs/kmb_", len_n, ".pdf"),8,8)
 plot(p)
 dev.off()
 p

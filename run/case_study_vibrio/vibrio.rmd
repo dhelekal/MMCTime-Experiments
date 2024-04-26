@@ -71,7 +71,7 @@ Inspect the posterior summaries for kingman
 ```{r}
 print(res_km$summaries, n=20)
 ```
-Plot a summary trees
+Plot summary trees
 ```{r, out.width="100%",eval=T}
 p1 <- plot_densiCI(res_kmb, n_samp=100, mrsd=max(dates),layout="rectangular") + ggtitle("Extended Beta")
 p2 <- plot_densiCI(res_km, n_samp=100, mrsd=max(dates),layout="rectangular") + ggtitle("Kingman")
@@ -127,10 +127,10 @@ thm1 <-function() theme(axis.title.x=element_blank(),
     axis.line = element_line(size=rel(0.2), colour = "grey80"),
     plot.title = element_text(hjust = 0.5,size=rel(1.0)))
 
-tmp1 <- cbind(res_kmb$draws[,c("mu", "omega", "t_412")],"Extended Beta")
-colnames(tmp1) <- c("mu", "omega", "height", "prior")
-tmp2 <- cbind(res_km$draws[,c("mu", "omega", "t_412")],"Kingman")
-colnames(tmp2) <- c("mu", "omega", "height", "prior")
+tmp1 <- cbind(res_kmb$draws[,c("mu", "omega", "t_412", "tree_length")],"Extended Beta")
+colnames(tmp1) <- c("mu", "omega", "height", "tree length", "prior")
+tmp2 <- cbind(res_km$draws[,c("mu", "omega", "t_412", "tree_length")],"Kingman")
+colnames(tmp2) <- c("mu", "omega", "height","tree length", "prior")
 
 mut_draws <- rbind(tmp1,tmp2)
 mut_draws$prior <- factor(mut_draws$prior)
@@ -140,7 +140,7 @@ qDf<-melt(mut_draws) %>% group_by(prior, variable) %>%
     med=quantile(value,probs=0.5),
     upper=quantile(value,probs=0.975))
 
-p <- ggplot(qDf, aes(x=prior,ymin=lower, y=med, ymax=upper, color=prior)) + 
+p <- qDf %>% filter(variable!="tree length") %>% ggplot(aes(x=prior,ymin=lower, y=med, ymax=upper, color=prior)) + 
     geom_linerange(lwd=0.5) +
     geom_point(size=1.5) +
     theme_minimal() + 
@@ -151,4 +151,17 @@ pdf("../manuscript_figs/vibrio_mut.pdf",8,8)
 p
 dev.off()
 p
+
+p <- qDf %>% filter(variable=="tree length") %>% ggplot(aes(x=prior,ymin=lower, y=med, ymax=upper, color=prior)) + 
+    geom_linerange(lwd=0.5) +
+    geom_point(size=1.5) +
+    theme_minimal() + 
+    facet_grid(cols=vars(variable))+
+    thm1()
+
+pdf("../manuscript_figs/vibrio_tl.pdf",8,8)
+p
+dev.off()
+p
+
 ```
