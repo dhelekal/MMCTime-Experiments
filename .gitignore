@@ -53,3 +53,4 @@ rsconnect/
 *slurm-*.out
 run/.DS_Store
 .DS_Store
+ana_treetime/
