@@ -36,4 +36,4 @@ write.tree(tr_in, tfile)
 
 afile <- paste0("seqs_", index, ".nex")
 
-system(paste0("treetime --tree '", tfile ,"' --dates '", dfile ,"' --aln '", afile, "' --outdir '", outdir, "' --coalescent const --max-iter 100 --relax 0.5 0 --rng-seed ", index))
+system(paste0("treetime --tree '", tfile ,"' --dates '", dfile ,"' --aln '", afile, "' --outdir '", outdir, "' --coalescent const --max-iter 150 --relax 5.0 0 --time-marginal false --rng-seed ", index))

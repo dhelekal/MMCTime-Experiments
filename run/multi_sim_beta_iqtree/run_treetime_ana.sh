@@ -2,7 +2,7 @@
 cd $1
 
 mkdir ana_treetime
-rm ./ana_treetime/*
+rm -r ./ana_treetime/*
 
 echo "starting treetime analysis"
 

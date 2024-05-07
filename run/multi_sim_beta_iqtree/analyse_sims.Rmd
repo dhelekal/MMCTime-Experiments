@@ -15,7 +15,9 @@ library(ggplot2)
 library(ape)
 library(posterior)
 library(reshape2)
+library(tidyverse)
 library(patchwork)
+library(Rlsd2)
 ```
 
 Ingest Data
@@ -239,4 +241,126 @@ pdf("../manuscript_figs/beta_exp_subs.pdf",8,8)
 plot(p4)
 dev.off()
 p4
+```
+
+Plot comparison against TreeTime and LSD2
+```{r}
+h2 <- function(clock, run_idx)
+{
+    res_mmc<-readRDS(paste0("./mut",clock,"/ana_out/res_", run_idx, ".rds"))
+    res_lsd<-readRDS(paste0("./mut",clock,"/ana_lsd/res_", run_idx, ".rds"))
+    
+    mmc_sums <- res_mmc$summaries
+
+    lsd_tree<- res_lsd$dateNexusTree@phylo
+    
+    gt_t <- di2multi(read.tree(paste0("./gt/tree_",run_idx,".nwk")))
+
+    gt_height <- max(node.depth.edgelength(gt_t))
+    gt_length <- sum(gt_t$edge.length)
+    gt_bcount <- nrow(gt_t$edge)
+
+    q_idx <- which(colnames(res_mmc$draws) %in% paste0("q_",1:(2*n_tips-1)))
+    
+    bcounts_mmc <- (median(apply(res_mmc$draws, 1, function(x) sum(1-x[q_idx])) - 1)-gt_bcount)/gt_bcount ##root has a q but no branch
+    
+    tt_res <- paste0("./mut",clock,"/ana_treetime/tree_", run_idx, "/timetree.nexus")
+    tt_tree <- NA
+    bcounts_tt <- NA
+    tl_tt <- NA
+    height_tt <- NA
+    if(file.exists(tt_res))
+    {
+        tt_tree <- read.nexus(tt_res)
+        tl_tt <- (sum(tt_tree$edge.length) - gt_length)/gt_length
+        height_tt <- (max(node.depth.edgelength(tt_tree)) - gt_height)/gt_height
+        bcounts_tt <- (nrow(di2multi(tt_tree)$edge)-gt_bcount)/gt_bcount
+    } else {
+       print(paste("Treetime run:",run_idx, "clock:",clock, "failed to complete." ))
+    }
+    bcounts_lsd <- (nrow(di2multi(lsd_tree)$edge)-gt_bcount)/gt_bcount
+    tl_lsd <- (sum(lsd_tree$edge.length) - gt_length)/gt_length
+    height_lsd <- (max(node.depth.edgelength(lsd_tree)) - gt_height)/gt_height
+    bcounts <- c(bcounts_mmc, bcounts_tt, bcounts_lsd)
+
+    tl_mmc <- unlist(mmc_sums[mmc_sums$variable == "tree_length", "median"] - gt_length)/gt_length
+
+    tl <- c(tl_mmc, tl_tt, tl_lsd)
+
+    height_mmc <- unlist(mmc_sums[mmc_sums$variable == root_n, "median"]-gt_height)/gt_height
+
+    height <- c(height_mmc, height_tt, height_lsd)
+
+    out <- data.frame(value=c(bcounts, tl, height), 
+        variable=c(rep("rel_branch_count",3),rep("rel_length",3),rep("rel_height",3)),
+        method=rep(c("ours", "treetime", "lsd2"))
+    )
+    out$clock <- clock
+    out$run <- run_idx
+    return(out)
+}
+
+df_summs <- data.frame(do.call(rbind,lapply(1L:mut_sets,
+    function(i) do.call(rbind, lapply(1L:set_size,
+            function(j) h2(i,j))))))
+
+.mod_transform <- function(y, lambda){
+   if(lambda != 0){
+      yt <- sign(y) * (((abs(y) + 1) ^ lambda - 1) / lambda)
+   } else {
+      yt = sign(y) * (log(abs(y) + 1))
+   }
+   return(yt)
+}
+.mod_inverse <- function(yt, lambda){
+   if(lambda != 0){
+      y <- ((abs(yt) * lambda + 1)  ^ (1 / lambda) - 1) * sign(yt)
+   } else {
+      y <- (exp(abs(yt)) - 1) * sign(yt)
+      
+   }
+   return(y)
+}
+prettify <- function(breaks){
+   # round numbers, more aggressively the larger they are
+   digits <- -floor(log10(abs(breaks))) + 1
+   digits[breaks == 0] <- 0
+   return(round(breaks, digits = digits))
+}
+mod_breaks <- function(lambda, n = 6, prettify = TRUE){
+   function(x){
+      breaks <- .mod_transform(x, lambda) %>%
+         pretty(n = n) %>%
+         .mod_inverse(lambda)
+      if(prettify){
+         breaks <- prettify(breaks)
+      }
+      return(breaks)
+   }
+}
+
+sum_func <- function(x) 
+{
+    x <- unname(quantile(x, c(.025, .5, .975)))
+    return(data.frame(y=x[2], ymin=x[1], ymax=x[3]))
+}
+p_compare <- ggplot(df_summs, aes(x=method, y=value, fill=method)) +
+    geom_violin(aes(color=method)) +
+    stat_summary(fun.data=sum_func, geom="pointrange", width=0.05, color="gray35",fill="gray35") +
+    geom_hline(yintercept=0, color="red") +
+    facet_grid(cols=vars(clock), rows=vars(variable), scales="free_y", labeller = label_bquote(cols="Clock"==.(clock))) +
+    theme_minimal() +
+    labs(x="Method", y="Relative Error") +
+    scale_y_continuous(transform=scales::transform_modulus(0), breaks=mod_breaks(lambda = 0, prettify = T))+
+    #coord_trans(y =scales::transform_modulus(0)) +
+    theme(
+        axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+pdf("../manuscript_figs/beta_compare.pdf",8,8)
+plot(p_compare)
+dev.off()
+p_compare
 ```
