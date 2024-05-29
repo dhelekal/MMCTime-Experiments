@@ -440,8 +440,6 @@ foo <- function(df, vn)
             axis.line = element_line(size=rel(0.2), colour = "grey80"),
             plot.title = element_text(hjust = 0.5,size=rel(1.0)))
 }
-
-
 ```
 
 ```{r,out.width="100%"}
@@ -466,4 +464,16 @@ pdf("../manuscript_figs/kmb_compare_height.pdf",8,8)
 plot(p)
 dev.off()
 p 
+```
+
+Print bias/variance
+```{r}
+df_summs %>% 
+    group_by(method, variable) %>%
+    summarise(bias = mean(value), 
+        rmse = sqrt(mean(value**2)),
+        q5=quantile(value, 0.05)[[1]],
+        q95=quantile(value, 0.95)[[1]],
+        iqr90=quantile(value, 0.95)[[1]]-quantile(value, 0.05)[[1]]) %>%
+        print(n=100)
 ```
