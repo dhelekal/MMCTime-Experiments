@@ -14,13 +14,13 @@ set.seed(index)
 
 tre_file <- paste0("tree_ml_",index,".nwk")
 tr_in <- read.tree(tre_file)
-tr_in <- multi2di(tr_in)
+tr_in <- di2multi(tr_in)
 
 n_tip <- length(tr_in$tip.label)
 
 pos <- sample(1:(n_tip - 2),1)
 outgroup <- ifelse(pos > n_tip, extract.clade(tr_in, pos)$tip.label, tr_in$tip.label[pos])
-lsd2 <- root(tr_in, outgroup=outgroup, resolve.root=T)
+tr_in <- root(tr_in, outgroup=outgroup, resolve.root=T)
 tr_in$edge.length <- tr_in$edge.length / 10000L
 
 dates_tab <- read.table(paste0("../gt/dates_", index , ".tab"))
