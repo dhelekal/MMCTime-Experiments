@@ -355,34 +355,11 @@ display: none;
 
 <p>Load Packages</p>
 <pre class="r"><code>library(MMCTime)
-#&gt; Warning: replacing previous import &#39;ape::where&#39; by &#39;dplyr::where&#39; when loading
-#&gt; &#39;MMCTime&#39;
-#&gt; Warning: replacing previous import &#39;ape::rotate&#39; by &#39;ggtree::rotate&#39; when
-#&gt; loading &#39;MMCTime&#39;
 library(ggplot2)
 library(ape)
 library(posterior)
-#&gt; This is posterior version 1.5.0
-#&gt; 
-#&gt; Attaching package: &#39;posterior&#39;
-#&gt; The following objects are masked from &#39;package:stats&#39;:
-#&gt; 
-#&gt;     mad, sd, var
-#&gt; The following objects are masked from &#39;package:base&#39;:
-#&gt; 
-#&gt;     %in%, match
 library(reshape2)
 library(tidyverse)
-#&gt; ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-#&gt; ✔ dplyr     1.1.4     ✔ readr     2.1.5
-#&gt; ✔ forcats   1.0.0     ✔ stringr   1.5.1
-#&gt; ✔ lubridate 1.9.3     ✔ tibble    3.2.1
-#&gt; ✔ purrr     1.0.2     ✔ tidyr     1.3.1
-#&gt; ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-#&gt; ✖ dplyr::filter() masks stats::filter()
-#&gt; ✖ dplyr::lag()    masks stats::lag()
-#&gt; ✖ dplyr::where()  masks ape::where()
-#&gt; ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
 library(patchwork)
 library(Rlsd2)</code></pre>
 <p>Ingest Data</p>
@@ -479,12 +456,7 @@ dfs &lt;- do.call(rbind,lapply(1L:mut_sets,
         axis.line = element_line(size=rel(0.2), colour = &quot;grey80&quot;),
         plot.title = element_text(hjust = 0.5,size=rel(1.0))) 
 }
-p1 &lt;- sum_plt(dfs)
-#&gt; Warning: The `size` argument of `element_line()` is deprecated as of ggplot2 3.4.0.
-#&gt; ℹ Please use the `linewidth` argument instead.
-#&gt; This warning is displayed once every 8 hours.
-#&gt; Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#&gt; generated.</code></pre>
+p1 &lt;- sum_plt(dfs)</code></pre>
 <p>Plot parameter recoveries</p>
 <pre class="r"><code>pdf(&quot;../manuscript_figs/beta.pdf&quot;,8,8)
 plot(p1)
