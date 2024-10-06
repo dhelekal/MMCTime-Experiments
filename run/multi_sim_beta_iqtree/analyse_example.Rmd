@@ -1,0 +1,143 @@
+---
+title: "Multimerger Timing Simulation Analysis"
+output: rmarkdown::html_document
+---
+
+```{r, echo = FALSE, message = FALSE}
+knitr::opts_chunk$set(collapse = T, comment = "#>")
+options(tibble.print_min = 4, tibble.print_max = 4)
+```
+
+Load Packages
+```{r}
+library(MMCTime)
+library(ggplot2)
+library(ape)
+library(posterior)
+library(reshape2)
+library(tidyverse)
+library(patchwork)
+library(Rlsd2)
+library(phangorn)
+library(ggtree)
+```
+
+Ingest Data
+```{r}
+mut_sets <- 3L
+set_size <- 3L*48L
+n_tips <- 200
+```
+
+Plot comparison against TreeTime and LSD2
+```{r}
+h2 <- function(clock, run_idx)
+{
+    res_lsd<-readRDS(paste0("./mut",clock,"/ana_lsd/res_", run_idx, ".rds"))
+    lsd_tree <- res_lsd$dateNexusTree@phylo
+    gt_t <- di2multi(read.tree(paste0("./gt/tree_",run_idx,".nwk")))
+
+    gt_height <- max(node.depth.edgelength(gt_t))
+    gt_length <- sum(gt_t$edge.length)
+    gt_bcount <- nrow(gt_t$edge)
+    
+    tt_res <- paste0("./mut",clock,"/ana_treetime/tree_", run_idx, "/timetree.nexus")
+    tt_tree <- NA
+    bcounts_tt <- NA
+    tl_tt <- NA
+    height_tt <- NA
+    if(file.exists(tt_res))
+    {
+        tt_tree <- read.nexus(tt_res)
+        tl_tt <- (sum(tt_tree$edge.length) - gt_length)/gt_length
+        height_tt <- (max(node.depth.edgelength(tt_tree)) - gt_height)/gt_height
+        bcounts_tt <- (nrow(di2multi(tt_tree)$edge)-gt_bcount)/gt_bcount
+    } else {
+       print(paste("Treetime run:",run_idx, "clock:",clock, "failed to complete." ))
+    }
+    
+    bcounts_lsd <- (nrow(di2multi(lsd_tree)$edge)-gt_bcount)/gt_bcount
+    tl_lsd <- (sum(lsd_tree$edge.length) - gt_length)/gt_length
+    height_lsd <- (max(node.depth.edgelength(lsd_tree)) - gt_height)/gt_height
+    
+    bcounts <- c(bcounts_tt, bcounts_lsd)
+    tl <- c(tl_tt, tl_lsd)
+    height <- c(height_tt, height_lsd)
+    dist <- c(
+        KF.dist(di2multi(tt_tree),gt_t, rooted=T), KF.dist(di2multi(lsd_tree),gt_t, rooted=T)
+    )
+
+    out <- data.frame(value=c(bcounts, tl, height, dist), 
+        variable=c(rep("rel_branch_count",2),rep("rel_length",2),rep("rel_height",2), rep("dist",2)),
+        method=rep(c("treetime", "lsd2"), 4)
+    )
+    out$clock <- clock
+    out$run <- run_idx
+    return(out)
+}
+
+df_summs <- data.frame(do.call(rbind,lapply(1L:mut_sets,
+    function(i) do.call(rbind, lapply(1L:set_size,
+            function(j) h2(i,j))))))
+```
+
+Print worst runs 
+```{r}
+worst <- df_summs %>% 
+    group_by(run, clock) %>% 
+    filter(variable == "rel_height") %>% 
+    summarise(min_err = abs(min(value)) ,.groups="keep") %>%
+    arrange(-min_err)
+
+print(worst, n=5)
+```
+
+```{r}
+worst_clock <- worst$clock[1]
+worst_run <- worst$run[1]
+
+df_summs %>% 
+    filter((clock == worst_clock) &(run==worst_run)) %>%
+    print()
+```
+
+```{r}
+    res_lsd<-readRDS(paste0("./mut",worst_clock,"/ana_lsd/res_", worst_run, ".rds"))
+    lsd_tree <- res_lsd$dateNexusTree@phylo
+    gt_t <- di2multi(read.tree(paste0("./gt/tree_",worst_run,".nwk")))
+    tt_res <- paste0("./mut",worst_clock,"/ana_treetime/tree_", worst_run, "/timetree.nexus")
+    tt_tree <- read.nexus(tt_res)
+
+    ml_tree <- read.tree(paste0("./mut",worst_clock,"/tree_ml_", worst_run, ".nwk"))
+
+    root_descendants <- gt_t$edge[gt_t$edge[,1] == 201, 2]
+    root_ogroups <- lapply(root_descendants, function(i) extract.clade(gt_t, i)$tip.label)
+
+    col_df <- data.frame(label=gt_t$tip.label, col = 0)
+    rownames(col_df) <- col_df$label
+
+    for (i in seq_along(root_ogroups)) {
+        col_df[root_ogroups[[i]], "col"] <- i
+    }
+```
+Ground truth 
+```{r,out.width="100%"}
+
+    plt_op <- function(plt) plt %<+% col_df + 
+        theme_tree2() + 
+        geom_tiplab(aes(color=factor(col)), size=1.0) + 
+        scale_x_ggtree() + 
+        scale_color_manual(values=c("red", "blue")) +
+        labs(color="Outgroup")
+
+    p_gt <- ggtree(gt_t) %>% plt_op + ggtitle("Ground Truth Tree")
+    p_tt <- ggtree(tt_tree) %>% plt_op + ggtitle("TreeTime Tree")
+    p_ml <- ggtree(ml_tree) %>% plt_op + ggtitle("ML Tree")
+    p_lsd <- ggtree(lsd_tree) %>% plt_op + ggtitle("LSD2 Tree")
+
+    p_compare_ex <- ((p_ml)|(p_gt / p_lsd / p_tt)) + plot_layout(guides="collect")
+    pdf("../manuscript_figs/beta_compare_ex.pdf",8,10)
+    plot(p_compare_ex)
+    dev.off()
+    p_compare_ex
+```

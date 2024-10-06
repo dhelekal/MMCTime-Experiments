@@ -18,6 +18,7 @@ library(reshape2)
 library(tidyverse)
 library(patchwork)
 library(Rlsd2)
+library(phangorn)
 ```
 
 Ingest Data
@@ -291,9 +292,14 @@ h2 <- function(clock, run_idx)
 
     height <- c(height_mmc, height_tt, height_lsd)
 
-    out <- data.frame(value=c(bcounts, tl, height), 
-        variable=c(rep("rel_branch_count",3),rep("rel_length",3),rep("rel_height",3)),
-        method=rep(c("ours", "treetime", "lsd2"))
+    avg_dist_mmc <- mean(sapply(sample_timetree(res_mmc, n_samp=res_mmc$n_draws, replace=F), function(x) KF.dist(x, gt_t, rooted=T)))
+    dist <- c(
+        avg_dist_mmc, KF.dist(di2multi(tt_tree),gt_t, rooted=T), KF.dist(di2multi(lsd_tree),gt_t, rooted=T)
+    )
+
+    out <- data.frame(value=c(bcounts, tl, height, dist), 
+        variable=c(rep("rel_branch_count",3),rep("rel_length",3),rep("rel_height",3), rep("dist",3)),
+        method=rep(c("ours", "treetime", "lsd2"), 4)
     )
     out$clock <- clock
     out$run <- run_idx
@@ -344,7 +350,7 @@ sum_func <- function(x)
     x <- unname(quantile(x, c(.025, .5, .975)))
     return(data.frame(y=x[2], ymin=x[1], ymax=x[3]))
 }
-p_compare <- ggplot(df_summs, aes(x=method, y=value, fill=method)) +
+p_compare <- ggplot(df_summs %>% filter(variable != "dist"), aes(x=method, y=value, fill=method)) +
     geom_violin(aes(color=method)) +
     stat_summary(fun.data=sum_func, geom="pointrange", width=0.05, color="gray35",fill="gray35") +
     geom_hline(yintercept=0, color="red") +
@@ -362,10 +368,29 @@ p_compare <- ggplot(df_summs, aes(x=method, y=value, fill=method)) +
 pdf("../manuscript_figs/beta_compare.pdf",8,8)
 plot(p_compare)
 dev.off()
-p_compare
+
+p_dists <- ggplot(df_summs %>% filter(variable == "dist"), aes(x=method, y=value, fill=method)) +
+    geom_violin(aes(color=method)) +
+    stat_summary(fun.data=sum_func, geom="pointrange", width=0.05, color="gray35",fill="gray35") +
+    facet_grid(cols=vars(clock), labeller = label_bquote(cols="Clock"==.(clock))) +
+    theme_minimal() +
+    labs(x="Method", y="Relative Error") +
+    scale_y_continuous(transform=scales::transform_modulus(0), breaks=mod_breaks(lambda = 0, prettify = T))+
+    #coord_trans(y =scales::transform_modulus(0)) +
+    theme(
+        axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+        plot.margin = margin(0, 0, 0, 0, "cm"),
+        panel.grid.major = element_blank(), 
+        axis.line = element_line(size=rel(0.2), colour = "grey80"),
+        plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+pdf("../manuscript_figs/beta_dists.pdf",8,8)
+plot(p_dists)
+dev.off()
+
+p_dists
 ```
 
-Print bias/variance
+Print bias/variance/etc
 ```{r}
 df_summs %>% 
     group_by(method, variable) %>%

@@ -17,6 +17,7 @@ library(posterior)
 library(reshape2)
 library(patchwork)
 library(dplyr)
+library(phangorn)
 ```
 
 
@@ -362,9 +363,14 @@ h2 <- function(clock, phi_idx, run_idx)
 
     height <- c(height_mmc, height_tt, height_lsd)
 
-    out <- data.frame(value=c(bcounts, tl, height), 
-        variable=c(rep("rel_branch_count",3),rep("rel_length",3),rep("rel_height",3)),
-        method=rep(c("ours", "treetime", "lsd2"))
+    avg_dist_mmc <- mean(sapply(sample_timetree(res_mmc, n_samp=res_mmc$n_draws, replace=F), function(x) KF.dist(x, gt_t, rooted=T)))
+    dist <- c(
+        avg_dist_mmc, KF.dist(di2multi(tt_tree),gt_t, rooted=T), KF.dist(di2multi(lsd_tree),gt_t, rooted=T)
+    )
+
+    out <- data.frame(value=c(bcounts, tl, height, dist), 
+        variable=c(rep("rel_branch_count",3),rep("rel_length",3),rep("rel_height",3), rep("dist",3)),
+        method=rep(c("ours", "treetime", "lsd2"), 4)
     )
 
     out$run_idx <- run_idx
@@ -464,6 +470,29 @@ pdf("../manuscript_figs/kmb_compare_height.pdf",8,8)
 plot(p)
 dev.off()
 p 
+```
+
+```{r,out.width="100%"}
+p_dists <- df_summs %>%
+    filter(variable== "dist") %>% 
+    ggplot(aes(x=method, y=value, fill=method)) +
+        geom_violin(aes(color=method)) +
+        stat_summary(fun.data=sum_func, geom="pointrange", width=0.05, color="gray35",fill="gray35") +
+        facet_grid(cols=vars(clock), rows=vars(phi_idx), scales="free_y", labeller = label_bquote("Phi Scenario"==.(phi_idx), "Clock"==.(clock))) +
+        theme_minimal() +
+        labs(x="Method", y="Branch Score Distance") +
+        ggtitle("dist")+
+        scale_y_continuous(transform=scales::transform_modulus(0), breaks=mod_breaks(lambda = 0, prettify = T))+
+        theme(
+            axis.text.x=element_text(size=rel(0.7), angle = 45, hjust=1),
+            plot.margin = margin(0, 0, 0, 0, "cm"),
+            panel.grid.major = element_blank(), 
+            axis.line = element_line(size=rel(0.2), colour = "grey80"),
+            plot.title = element_text(hjust = 0.5,size=rel(1.0)))
+pdf("../manuscript_figs/kmb_dists.pdf",8,8)
+plot(p_dists)
+dev.off()
+p_dists
 ```
 
 Print bias/variance
