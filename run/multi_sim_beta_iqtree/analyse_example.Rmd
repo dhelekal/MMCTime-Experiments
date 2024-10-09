@@ -108,6 +108,8 @@ df_summs %>%
     tt_res <- paste0("./mut",worst_clock,"/ana_treetime/tree_", worst_run, "/timetree.nexus")
     tt_tree <- read.nexus(tt_res)
 
+    res_mmc <- readRDS(paste0("./mut",worst_clock,"/ana_out/res_", worst_run, ".rds"))
+
     ml_tree <- read.tree(paste0("./mut",worst_clock,"/tree_ml_", worst_run, ".nwk"))
 
     root_descendants <- gt_t$edge[gt_t$edge[,1] == 201, 2]
@@ -123,19 +125,39 @@ df_summs %>%
 Ground truth 
 ```{r,out.width="100%"}
 
-    plt_op <- function(plt) plt %<+% col_df + 
-        theme_tree2() + 
-        geom_tiplab(aes(color=factor(col)), size=1.0) + 
-        scale_x_ggtree() + 
-        scale_color_manual(values=c("red", "blue")) +
-        labs(color="Outgroup")
+    plt_op <- function(plt) {
+        plt <- plt + 
+            theme_tree2() + 
+            scale_x_continuous(labels=abs) 
+
+        cdf <- data.frame(outgroup = factor(col_df$col))
+        rownames(cdf) <- rownames(col_df)
+
+        gheatmap(plt, cdf, width=.1,
+            colnames=FALSE, legend_title = "outgroup")
+    }
+        #scale_color_manual(values=c("#0af6f6", "#f309ad", "blue", "red")) +
+        #labs(color="Outgroup")
 
     p_gt <- ggtree(gt_t) %>% plt_op + ggtitle("Ground Truth Tree")
     p_tt <- ggtree(tt_tree) %>% plt_op + ggtitle("TreeTime Tree")
     p_ml <- ggtree(ml_tree) %>% plt_op + ggtitle("ML Tree")
     p_lsd <- ggtree(lsd_tree) %>% plt_op + ggtitle("LSD2 Tree")
 
-    p_compare_ex <- ((p_ml)|(p_gt / p_lsd / p_tt)) + plot_layout(guides="collect")
+    phy_gt.f <- fortify(as.phylo(gt_t), layout="rectangular")
+
+    max_x_gt <- max(phy_gt.f$x,na.rm=TRUE)
+    phy_gt.f$x <- phy_gt.f$x - max_x_gt
+
+    tip_ord_gt <- phy_gt.f %>%
+                dplyr::filter(.data$isTip) %>%
+                dplyr::arrange(.data$y) %>%
+                dplyr::pull("label")
+
+
+    plt_ci <- plot_densiCI(res_mmc, layout="rectangular", n_samp=100, tip.order=tip_ord_gt) %>% plt_op + ggtitle("MMCTime Densitree")
+
+    p_compare_ex <- ((p_ml)|(p_gt / p_lsd / p_tt / plt_ci)) + plot_layout(guides="collect")
     pdf("../manuscript_figs/beta_compare_ex.pdf",8,10)
     plot(p_compare_ex)
     dev.off()

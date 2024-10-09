@@ -18,6 +18,7 @@ library(posterior)
 library(patchwork)
 library(reshape2)
 library(dplyr)
+library(gt)
 set.seed(1234356)
 ```
 
@@ -129,6 +130,32 @@ pdf("../manuscript_figs/mtb_coal.pdf",8,8)
 p
 dev.off()
 p
+```
+
+```{r}
+
+rbind(df1,df2) %>% 
+    group_by(model, dataset, variable) %>%
+    summarize(lower=quantile(value,probs=0.025),
+    med=quantile(value,probs=0.5),
+    upper=quantile(value,probs=0.975)) %>% 
+    rbind(qDf) %>% 
+    mutate(summary = sprintf("%.3f (%.3f, %.3f)",round(med, 4), round(lower,4), round(upper,4))) %>%
+    select(!c(lower, upper, med)) %>%
+    #pivot_wider(names_from = variable, values_from = summary) %>%
+    #relocate(c(tree_length, mu, omega, nu, alpha, phi), .after = dataset) %>%
+    #arrange(is.na(phi)) %>%
+    
+    pivot_wider(names_from = dataset, values_from = summary) %>%
+    gt(rowname_col = "variable", groupname_col = "model", row_group_as_column=T) %>%
+    cols_align("center") %>%
+    tab_options(
+        table.font.size = 7,
+        quarto.use_bootstrap = TRUE,
+        data_row.padding = px(1), 
+        column_labels.padding = px(1), 
+        heading.padding = px(1)) %>%
+    gtsave("table_mtb.tex")
 ```
 
 Show densitrees for Eldholm2015

@@ -19,6 +19,8 @@ library(posterior)
 library(reshape2)
 library(dplyr)
 library(patchwork)
+library(tidyverse) 
+library(gt)
 
 set.seed(12343)
 run_mcmc <- F
@@ -164,4 +166,35 @@ p
 dev.off()
 p
 
+```
+
+```{r}
+tmp1 <- cbind(res_kmb$draws[,c("phi","alpha","nu","mu", "omega", "t_412", "tree_length")],"Extended Beta")
+colnames(tmp1) <- c("phi","alpha","nu","mu", "omega", "height", "tree length", "prior")
+tmp2 <- cbind(res_km$draws[,c("nu","mu", "omega", "t_412", "tree_length")],"Kingman")
+colnames(tmp2) <- c("nu","mu", "omega", "height","tree length", "prior")
+
+mut_draws <- rbind(pivot_longer(tmp1, c(!prior)),pivot_longer(tmp2, c(!prior)))
+mut_draws$prior <- factor(mut_draws$prior)
+
+qDf<-mut_draws %>% rename(variable=name) %>% group_by(prior, variable) %>%
+    summarize(lower=quantile(value,probs=0.025),
+    med=quantile(value,probs=0.5),
+    upper=quantile(value,probs=0.975))
+
+qDf %>% 
+    mutate(summary = sprintf("%.3f (%.3f, %.3f)",round(med, 4), round(lower,4), round(upper,4))) %>%
+    select(!c(lower, upper, med)) %>%
+    rename(model=prior) %>%
+    arrange(variable %in% c("alpha", "phi")) %>%
+    #pivot_wider(names_from = dataset, values_from = summary) %>%
+    gt(groupname_col = "model", row_group_as_column=T) %>%
+    cols_align("center") %>%
+    tab_options(
+        table.font.size = 7,
+        quarto.use_bootstrap = TRUE,
+        data_row.padding = px(1), 
+        column_labels.padding = px(1), 
+        heading.padding = px(1)) %>%
+    gtsave("table_vibrio.tex")
 ```

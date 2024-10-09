@@ -292,7 +292,8 @@ h2 <- function(clock, run_idx)
 
     height <- c(height_mmc, height_tt, height_lsd)
 
-    avg_dist_mmc <- mean(sapply(sample_timetree(res_mmc, n_samp=res_mmc$n_draws, replace=F), function(x) KF.dist(x, gt_t, rooted=T)))
+    avg_dist_mmc <- mean(sapply(sample_timetree(res_mmc, n_samp=res_mmc$n_draws,
+    replace=F), function(x) KF.dist(x, gt_t, rooted=T)))
     dist <- c(
         avg_dist_mmc, KF.dist(di2multi(tt_tree),gt_t, rooted=T), KF.dist(di2multi(lsd_tree),gt_t, rooted=T)
     )
