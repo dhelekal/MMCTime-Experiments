@@ -19,6 +19,8 @@ library(patchwork)
 library(reshape2)
 library(dplyr)
 library(gt)
+library(stringr)
+library(tidyverse)
 set.seed(1234356)
 ```
 
@@ -66,10 +68,17 @@ names(res_kingman) <- name_vec
 
 Build DataFrames
 ```{r}
-foo <- function(x,vnames) do.call(rbind,lapply(names(x), function(s) cbind(x[[s]]$draws[,vnames],dataset=s)))
-df_beta <- foo(res_beta,c("alpha","nu","mu","omega", "tree_length"))
-df_kmb <- foo(res_kmb,c("phi","alpha","nu","mu","omega", "tree_length"))
-df_kingman <- foo(res_kingman,c("nu","mu","omega", "tree_length"))
+foo <- function(x,vnames) do.call(rbind,lapply(names(x), function(s) {
+    draws <- x[[s]]$draws
+    rname <- paste0("t_",length(x[[s]]$undated$tip.label)+1)
+    draws %>% 
+        rename(tree_height=rname) %>% 
+        select(all_of(vnames)) %>%
+        cbind(dataset=s)
+}))
+df_beta <- foo(res_beta,c("alpha","nu","mu","omega", "tree_length", "tree_height"))
+df_kmb <- foo(res_kmb,c("phi","alpha","nu","mu","omega", "tree_length", "tree_height"))
+df_kingman <- foo(res_kingman,c("nu","mu","omega", "tree_length", "tree_height"))
 ```
 
 Plot clock parameters
@@ -133,13 +142,17 @@ p
 ```
 
 ```{r}
+df1 <- pivot_longer(cbind(df_beta, model="Beta"), !c(dataset, model), names_to = "variable")
+df2 <- pivot_longer(cbind(df_kmb, model="Extended beta"), !c(dataset, model), names_to = "variable")
+df3 <- pivot_longer(cbind(df_kingman, model="Kingman"), !c(dataset, model), names_to = "variable")
 
-rbind(df1,df2) %>% 
+
+
+rbind(df1,df2, df3) %>% 
     group_by(model, dataset, variable) %>%
-    summarize(lower=quantile(value,probs=0.025),
-    med=quantile(value,probs=0.5),
-    upper=quantile(value,probs=0.975)) %>% 
-    rbind(qDf) %>% 
+    summarize(lower=quantile(value,probs=0.025)[[1]],
+    med=quantile(value,probs=0.5)[[1]],
+    upper=quantile(value,probs=0.975)[[1]]) %>% 
     mutate(summary = sprintf("%.3f (%.3f, %.3f)",round(med, 4), round(lower,4), round(upper,4))) %>%
     select(!c(lower, upper, med)) %>%
     #pivot_wider(names_from = variable, values_from = summary) %>%
@@ -147,6 +160,7 @@ rbind(df1,df2) %>%
     #arrange(is.na(phi)) %>%
     
     pivot_wider(names_from = dataset, values_from = summary) %>%
+    arrange(match(variable, c("mu", "nu", "omega", "alpha", "phi", "tree_height", "tree_length"))) %>%
     gt(rowname_col = "variable", groupname_col = "model", row_group_as_column=T) %>%
     cols_align("center") %>%
     tab_options(

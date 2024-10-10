@@ -170,9 +170,9 @@ p
 
 ```{r}
 tmp1 <- cbind(res_kmb$draws[,c("phi","alpha","nu","mu", "omega", "t_412", "tree_length")],"Extended Beta")
-colnames(tmp1) <- c("phi","alpha","nu","mu", "omega", "height", "tree length", "prior")
+colnames(tmp1) <- c("phi","alpha","nu","mu", "omega", "tree_height", "tree_length", "prior")
 tmp2 <- cbind(res_km$draws[,c("nu","mu", "omega", "t_412", "tree_length")],"Kingman")
-colnames(tmp2) <- c("nu","mu", "omega", "height","tree length", "prior")
+colnames(tmp2) <- c("nu","mu", "omega", "tree_height","tree_length", "prior")
 
 mut_draws <- rbind(pivot_longer(tmp1, c(!prior)),pivot_longer(tmp2, c(!prior)))
 mut_draws$prior <- factor(mut_draws$prior)
@@ -186,7 +186,7 @@ qDf %>%
     mutate(summary = sprintf("%.3f (%.3f, %.3f)",round(med, 4), round(lower,4), round(upper,4))) %>%
     select(!c(lower, upper, med)) %>%
     rename(model=prior) %>%
-    arrange(variable %in% c("alpha", "phi")) %>%
+    arrange(match(variable, c("mu", "nu", "omega", "alpha", "phi", "tree_height", "tree_length"))) %>%
     #pivot_wider(names_from = dataset, values_from = summary) %>%
     gt(groupname_col = "model", row_group_as_column=T) %>%
     cols_align("center") %>%
